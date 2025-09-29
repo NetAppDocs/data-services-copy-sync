@@ -1,0 +1,291 @@
+---
+sidebar: sidebar
+permalink: reference-supported-relationships.html
+keywords: supported sync relationships, support, supported target, supported source
+summary: NetApp Copy and Sync enables you to sync data from a source to a target. This is called a sync relationship. You should understand the supported relationships before you get started.
+---
+
+= Supported sync relationships in NetApp Copy and Sync
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+NetApp Copy and Sync enables you to sync data from a source to a target. This is called a sync relationship. You should understand the supported relationships before you get started.
+
+[cols=2*,options="header",cols="20,25"]
+|===
+| Source location
+| Supported target locations
+
+| Amazon EFS a|
+
+* Amazon EFS
+* Amazon FSx for ONTAP
+* Amazon S3
+* Azure Blob
+* Azure NetApp Files
+* Cloud Volumes ONTAP
+* Google Cloud Storage
+* IBM Cloud Object Storage
+* NFS server
+* On-premises ONTAP cluster (NFS or SMB)
+* SMB server
+* StorageGRID
+
+| Amazon FSx for ONTAP a|
+
+* Amazon EFS
+* Amazon FSx for ONTAP
+* Amazon S3
+* Azure Blob
+* Azure Data Lake Storage Gen2
+* Azure NetApp Files
+* Cloud Volumes ONTAP
+* Google Cloud Storage
+* IBM Cloud Object Storage
+* NFS server
+* On-premises ONTAP cluster (NFS or SMB)
+* SMB server
+* StorageGRID
+
+| Amazon S3 a|
+
+* Amazon EFS
+* Amazon FSx for ONTAP
+* Amazon S3
+* Azure Blob
+* Azure Data Lake Storage Gen2
+* Azure NetApp Files
+* Box ^1^
+* Cloud Volumes ONTAP
+* Google Cloud Storage
+* IBM Cloud Object Storage
+* NFS server
+* On-premises ONTAP cluster (NFS or SMB)
+* ONTAP S3 Storage
+* SMB server
+* StorageGRID
+
+| Azure Blob a|
+
+* Amazon EFS
+* Amazon FSx for ONTAP
+* Amazon S3
+* Azure Blob
+* Azure NetApp Files
+* Cloud Volumes ONTAP
+* Google Cloud Storage
+* IBM Cloud Object Storage
+* NFS server
+* On-premises ONTAP cluster (NFS or SMB)
+* SMB server
+* StorageGRID
+
+| Azure Data Lake Storage Gen2 a|
+
+* Azure NetApp Files
+* Cloud Volumes ONTAP
+* FSx for ONTAP
+* IBM Cloud Object Storage
+* NFS server
+* On-Prem ONTAP
+* ONTAP S3 Storage
+* SMB server
+* StorageGRID
+
+| Azure NetApp Files a|
+
+* Amazon EFS
+* Amazon FSx for ONTAP
+* Amazon S3
+* Azure Blob
+* Azure Data Lake Storage Gen2
+* Azure NetApp Files
+* Cloud Volumes ONTAP
+* Google Cloud Storage
+* IBM Cloud Object Storage
+* NFS server
+* On-premises ONTAP cluster (NFS or SMB)
+* SMB server
+* StorageGRID
+
+| Box ^1^ a|
+
+* Amazon FSx for ONTAP
+* Amazon S3
+* Azure NetApp Files
+* Cloud Volumes ONTAP
+* IBM Cloud Object Storage
+* NFS server
+* SMB server
+* StorageGRID
+
+| Cloud Volumes ONTAP a|
+
+* Amazon EFS
+* Amazon FSx for ONTAP
+* Amazon S3
+* Azure Blob
+* Azure Data Lake Storage Gen2
+* Azure NetApp Files
+* Cloud Volumes ONTAP
+* Google Cloud Storage
+* IBM Cloud Object Storage
+* NFS server
+* On-premises ONTAP cluster (NFS or SMB)
+* SMB server
+* StorageGRID
+
+
+| Google Cloud Storage a|
+
+* Amazon EFS
+* Amazon FSx for ONTAP
+* Amazon S3
+* Azure Blob
+* Azure NetApp Files
+* Cloud Volumes ONTAP
+* Google Cloud Storage
+* IBM Cloud Object Storage
+* NFS server
+* On-premises ONTAP cluster (NFS or SMB)
+* ONTAP S3 Storage
+* SMB server
+* StorageGRID
+
+| Google Drive a|
+
+* NFS server
+* SMB server
+
+| IBM Cloud Object Storage a|
+
+* Amazon EFS
+* Amazon FSx for ONTAP
+* Amazon S3
+* Azure Blob
+* Azure Data Lake Storage Gen2
+* Azure NetApp Files
+* Box ^1^
+* Cloud Volumes ONTAP
+* Google Cloud Storage
+* IBM Cloud Object Storage
+* NFS server
+* On-premises ONTAP cluster (NFS or SMB)
+* SMB server
+* StorageGRID
+
+| NFS server a|
+
+* Amazon EFS
+* Amazon FSx for ONTAP
+* Amazon S3
+* Azure Blob
+* Azure Data Lake Storage Gen2
+* Azure NetApp Files
+* Cloud Volumes ONTAP
+* Google Cloud Storage
+* Google Drive
+* IBM Cloud Object Storage
+* NFS server
+* On-premises ONTAP cluster (NFS or SMB)
+* ONTAP S3 Storage
+* SMB server
+* StorageGRID
+
+| On-premises ONTAP cluster (NFS or SMB) a|
+
+* Amazon EFS
+* Amazon FSx for ONTAP
+* Amazon S3
+* Azure Blob
+* Azure Data Lake Storage Gen2
+* Azure NetApp Files
+* Cloud Volumes ONTAP
+* Google Cloud Storage
+* IBM Cloud Object Storage
+* NFS server
+* On-premises ONTAP cluster (NFS or SMB)
+* SMB server
+* StorageGRID
+
+| ONTAP S3 Storage a|
+
+* Amazon S3
+* Azure Data Lake Storage Gen2
+* Google Cloud Storage
+* NFS server
+* SMB server
+* StorageGRID
+* ONTAP S3 Storage
+
+| SFTP ^2^ | S3
+
+| SMB server a|
+
+* Amazon EFS
+* Amazon FSx for ONTAP
+* Amazon S3
+* Azure Blob
+* Azure Data Lake Storage Gen2
+* Azure NetApp Files
+* Cloud Volumes ONTAP
+* Google Cloud Storage
+* Google Drive
+* IBM Cloud Object Storage
+* NFS server
+* On-premises ONTAP cluster (NFS or SMB)
+* ONTAP S3 Storage
+* SMB server
+* StorageGRID
+
+| StorageGRID a|
+
+* Amazon EFS
+* Amazon FSx for ONTAP
+* Amazon S3
+* Azure Blob
+* Azure Data Lake Storage Gen2
+* Azure NetApp Files
+* Box ^1^
+* Cloud Volumes ONTAP
+* Google Cloud Storage
+* IBM Cloud Object Storage
+* NFS server
+* On-premises ONTAP cluster (NFS or SMB)
+* ONTAP S3 Storage
+* SMB server
+* StorageGRID
+
+|===
+
+Notes:
+
+. Box support is available as a preview.
+
+. Sync relationships with this source/target are supported by using the Copy and Sync API only.
+
+. You can choose a specific Azure Blob storage tier when a Blob container is the target:
++
+* Hot storage
+* Cool storage
+
+. [[storage-classes]]You can choose a specific S3 storage class when Amazon S3 is the target:
++
+* Standard (this is the default class)
+* Intelligent-Tiering
+* Standard-Infrequent Access
+* One Zone-Infrequent Access
+*	Glacier Deep Archive
+*	Glacier Flexible Retrieval
+* Glacier Instant Retrieval
+
+. You can choose a specific storage class when a Google Cloud Storage bucket is the target:
++
+* Standard
+* Nearline
+* Coldline
+* Archive

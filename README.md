@@ -1,1 +1,1 @@
-# new-repo-template
+# NetApp-copy-sync

@@ -1,0 +1,2 @@
+=== Bug fixes
+We updated NetApp Copy and Sync and the data broker to fix a few bugs. The new data broker version is 1.0.55.

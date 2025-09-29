@@ -1,0 +1,177 @@
+---
+sidebar: sidebar
+permalink: task-installing-gcp.html
+keywords: data broker, install, gcp, google, networking, permissions, regions, install data broker in gcp, install in gcp, deploy in gcp, deploy data broker in gcp, install data broker in google, install in google, deploy in google, deploy data broker in google, networking requirements, port, ports, 443, port 443, ntp, network time protocol, gcp data broker, service account
+summary: When you create a new data broker, choose the Google Cloud Data Broker option to deploy the data broker software on a new virtual machine instance in a VPC. NetApp Copy and Sync guides you through the installation process, but the requirements and steps are repeated on this page to help you prepare for installation.
+---
+
+= Create a new data broker in Google Cloud for NetApp Copy and Sync
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+When you create a new data broker group for NetApp Copy and Sync, choose Google Cloud Platform to deploy the data broker software on a new virtual machine instance in a Google Cloud VPC. NetApp Copy and Sync guides you through the installation process, but the requirements and steps are repeated on this page to help you prepare for installation.
+
+You also have the option to install the data broker on an existing Linux host in the cloud or on your premises. link:task-installing-linux.html[Learn more].
+
+== Supported Google Cloud regions
+
+All regions are supported.
+
+== Root privileges
+
+The data broker software automatically runs as root on the Linux host. Running as root is a requirement for data broker operations. For example, to mount shares.
+
+== Networking requirements
+
+* The data broker needs an outbound internet connection so it can poll Copy and Sync for tasks over port 443.
++
+When Copy and Sync deploys the data broker in Google Cloud, it creates a security group that enables the required outbound communication.
++
+If you need to limit outbound connectivity, see link:reference-networking.html[the list of endpoints that the data broker contacts].
+
+* NetApp recommends configuring the source, target, and data broker to use a Network Time Protocol (NTP) service. The time difference between the three components should not exceed 5 minutes.
+
+== Permissions required to deploy the data broker in Google Cloud
+
+Ensure that the Google Cloud user who deploys the data broker has the following permissions:
+
+[source,yaml]
+- compute.networks.list
+- compute.regions.list
+- deploymentmanager.deployments.create
+- deploymentmanager.deployments.delete
+- deploymentmanager.operations.get
+- iam.serviceAccounts.list
+
+== Permissions required for the service account
+
+When you deploy the data broker, you need to select a service account that has the following permissions:
+
+[source,yaml]
+- logging.logEntries.create
+- resourcemanager.projects.get
+- storage.buckets.get
+- storage.buckets.list
+- storage.objects.create
+- storage.objects.delete
+- storage.objects.get
+- storage.objects.getIamPolicy
+- storage.objects.list
+- storage.objects.setIamPolicy
+- storage.objects.update
+- iam.serviceAccounts.signJwt
+- pubsub.subscriptions.consume
+- pubsub.subscriptions.create
+- pubsub.subscriptions.delete
+- pubsub.subscriptions.list
+- pubsub.topics.attachSubscription
+- pubsub.topics.create
+- pubsub.topics.delete
+- pubsub.topics.list
+- pubsub.topics.setIamPolicy
+- storage.buckets.update
+- cloudkms.cryptoKeys.list
+- cloudkms.keyRings.list
+
+Notes:
+
+. The "iam.serviceAccounts.signJwt" permission is required only if you're planning to set up the data broker to use an external HashiCorp vault.
+
+. The "pubsub.*" and "storage.buckets.update" permissions are required only if you plan to enable the Continuous Sync setting on a sync relationship from Google Cloud Storage to another cloud storage location. link:task-creating-relationships.html#settings[Learn more about the Continuous Sync option].
+
+. The "cloudkms.cryptoKeys.list" and "cloudkms.keyRings.list" permissions are required only if you plan to use a customer-managed KMS key on a target Google Cloud Storage bucket.
+
+== Create the data broker
+
+There are a few ways to create a new data broker. These steps describe how to install a data broker in Google Cloud when you create a sync relationship.
+
+.Steps
+
+
+. link:task-login-copyandsync.html[Log in to Copy and Sync].
+
+. Select *Create New Sync*.
+
+. On the *Define Sync Relationship* page, choose a source and target and select *Continue*.
++
+Complete the steps until you reach the *Data Broker Group* page.
+
+. On the *Data Broker Group* page, select *Create Data Broker* and then select *Google Cloud Platform*.
++
+image:screenshot-google.png["A screenshot of the Data Broker page that enables you to choose between an AWS, Azure, Google Cloud, and On-Prem data broker."]
+
+. Enter a name for the data broker and select *Continue*.
+
+. If you're prompted, log in with your Google account.
++
+The form is owned and hosted by Google. Your credentials are not provided to NetApp.
+
+. Select a project and service account and then choose a location for the data broker, including whether you want to enable or disable a public IP address.
++
+If you don't enable a public IP address, then you'll need to define a proxy server in the next step.
++
+image:screenshot_data_broker_gcp.png[A screenshot that shows the information required to deploy a data broker in Google Cloud.]
+
+. Specify a proxy configuration, if a proxy is required for internet access in the VPC.
++
+If a proxy is required for internet access, then the proxy must be in Google Cloud and use the same service account as the data broker.
+
+. Once the data broker is available, select *Continue* in Copy and Sync.
++
+The instance takes approximately 5 to 10 minutes to deploy. You can monitor the progress from Copy and Sync, which automatically refreshes when the instance is available.
+
+. Complete the pages in the wizard to create the new sync relationship.
+
+.Result
+
+You've deployed a data broker in Google Cloud and created a new sync relationship. You can use this data broker with additional sync relationships.
+
+== Provide permissions to use buckets in other Google Cloud projects
+
+When you create a sync relationship and choose Google Cloud Storage as the source or target, Copy and Sync enables you to choose from the buckets that the data broker's service account has permissions to use. By default, this includes the buckets that are in the _same_ project as the data broker service account. But you can choose buckets from _other_ projects if you provide the required permissions.
+
+.Steps
+
+. Open the Google Cloud Platform console and load the Cloud Storage service.
+
+. Select the name of the bucket that you'd like to use as a source or target in a sync relationship.
+
+. Select *Permissions*.
+
+. Select *Add*.
+
+. Enter the name of the data broker's service account.
+
+. Select a role that provides <<Permissions required for the service account,the same permissions as shown above>>.
+
+. Select *Save*.
+
+.Result
+
+When you set up a sync relationship, you can now choose that bucket as the source or target in the sync relationship.
+
+== Details about the data broker VM instance
+
+Copy and Sync creates a data broker in Google Cloud using the following configuration.
+
+Node.js compatibility::
+v21.2.0
+
+Machine type::
+n2-standard-4
+
+vCPUs::
+4
+
+RAM::
+15 GB
+
+Operating system::
+Rocky Linux 9.0
+
+Disk size and type::
+20 GB HDD pd-standard

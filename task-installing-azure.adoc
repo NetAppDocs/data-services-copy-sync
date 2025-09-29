@@ -1,0 +1,213 @@
+---
+sidebar: sidebar
+permalink: task-installing-azure.html
+keywords: data broker, install, azure, networking, permissions, regions, install data broker in azure, install in azure, deploy in azure, deploy data broker in azure, networking requirements, port, ports, 443, port 443, ntp, network time protocol, azure data broker
+summary: When you create a new data broker, choose the Azure Data Broker option to deploy the data broker software on a new virtual machine in a VNet. NetApp Copy and Sync guides you through the installation process, but the requirements and steps are repeated on this page to help you prepare for installation.
+---
+
+= Create a new data broker in Azure for NetApp Copy and Sync
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+When you create a new data broker group for NetApp Copy and Sync, choose the Microsoft Azure to deploy the data broker software on a new virtual machine in a VNet. NetApp Copy and Sync guides you through the installation process, but the requirements and steps are repeated on this page to help you prepare for installation.
+
+You also have the option to install the data broker on an existing Linux host in the cloud or on your premises. link:task-installing-linux.html[Learn more].
+
+== Supported Azure regions
+
+All regions are supported except for the China, US Gov, and US DoD regions.
+
+== Root privileges
+
+The data broker software automatically runs as root on the Linux host. Running as root is a requirement for data broker operations. For example, to mount shares.
+
+== Networking requirements
+
+* The data broker needs an outbound internet connection so it can poll the Copy and Sync service for tasks over port 443.
++
+When Copy and Sync deploys the data broker in Azure, it creates a security group that enables the required outbound communication.
++
+If you need to limit outbound connectivity, see link:reference-networking.html[the list of endpoints that the data broker contacts].
+
+* NetApp recommends configuring the source, target, and data broker to use a Network Time Protocol (NTP) service. The time difference between the three components should not exceed 5 minutes.
+
+== Permissions required to deploy the data broker in Azure
+
+Ensure that the Azure user account that you use to deploy the data broker has the following permissions:
+
+[source,json]
+{
+    "Name": "Azure Data Broker",
+    "Actions": [
+					"Microsoft.Resources/subscriptions/read",
+                    "Microsoft.Resources/deployments/operationstatuses/read",
+                    "Microsoft.Resources/subscriptions/locations/read",
+                    "Microsoft.Network/networkInterfaces/read",
+                    "Microsoft.Network/virtualNetworks/subnets/read",
+                    "Microsoft.Resources/subscriptions/resourceGroups/write",
+                    "Microsoft.Resources/subscriptions/resourceGroups/delete",
+                    "Microsoft.Resources/deployments/write",
+                    "Microsoft.Resources/deployments/validate/action",
+                    "Microsoft.Resources/deployments/operationStatuses/read",
+                    "Microsoft.Resources/deployments/cancel/action",
+                    "Microsoft.Compute/virtualMachines/read",
+                    "Microsoft.Compute/virtualMachines/delete",
+                    "Microsoft.Compute/disks/delete",
+                    "Microsoft.Network/networkInterfaces/delete",
+                    "Microsoft.Network/publicIPAddresses/delete",
+                    "Microsoft.Network/networkSecurityGroups/securityRules/delete",
+                    "Microsoft.Resources/subscriptions/resourceGroups/write",
+                    "Microsoft.Compute/virtualMachines/delete",
+                    "Microsoft.Network/networkSecurityGroups/write",
+                    "Microsoft.Network/networkSecurityGroups/join/action",
+                    "Microsoft.Compute/disks/write",
+                    "Microsoft.Network/networkInterfaces/write",
+                    "Microsoft.Network/virtualNetworks/read",
+                    "Microsoft.Network/publicIPAddresses/write",
+                    "Microsoft.Compute/virtualMachines/write",
+                    "Microsoft.Compute/virtualMachines/extensions/write",
+                    "Microsoft.Resources/deployments/read",
+                    "Microsoft.Network/networkSecurityGroups/read",
+                    "Microsoft.Network/publicIPAddresses/read",
+                    "Microsoft.Network/virtualNetworks/subnets/join/action",
+                    "Microsoft.Network/publicIPAddresses/join/action",
+                    "Microsoft.Network/networkInterfaces/join/action",
+                    "Microsoft.Storage/storageAccounts/read",
+                    "Microsoft.EventGrid/systemTopics/eventSubscriptions/write",
+                    "Microsoft.EventGrid/systemTopics/eventSubscriptions/read",
+                    "Microsoft.EventGrid/systemTopics/eventSubscriptions/delete",
+                    "Microsoft.EventGrid/systemTopics/eventSubscriptions/getFullUrl/action",
+                    "Microsoft.EventGrid/systemTopics/eventSubscriptions/getDeliveryAttributes/action",
+                    "Microsoft.EventGrid/systemTopics/read",
+                    "Microsoft.EventGrid/systemTopics/write",
+                    "Microsoft.EventGrid/systemTopics/delete",
+                    "Microsoft.EventGrid/eventSubscriptions/write",
+                    "Microsoft.Storage/storageAccounts/write"
+                    "Microsoft.MarketplaceOrdering/offertypes/publishers/offers/plans/agreements/read"
+                    "Microsoft.MarketplaceOrdering/offertypes/publishers/offers/plans/agreements/write"
+                    "Microsoft.Network/networkSecurityGroups/securityRules/read",
+        	        "Microsoft.Network/networkSecurityGroups/read",
+
+
+    ],
+    "NotActions": [],
+    "AssignableScopes": [],
+    "Description": "Azure Data Broker",
+    "IsCustom": "true"
+}
+
+Note:
+
+. The following permissions are only required if you plan to enable the https://docs.netapp.com/us-en/bluexp-copy-sync/task-creating-relationships.html#settings[Continuous Sync setting] on a sync relationship from Azure to another cloud storage location:
+* 'Microsoft.Storage/storageAccounts/read',
+* 'Microsoft.EventGrid/systemTopics/eventSubscriptions/write',
+* 'Microsoft.EventGrid/systemTopics/eventSubscriptions/read',
+* 'Microsoft.EventGrid/systemTopics/eventSubscriptions/delete',
+* 'Microsoft.EventGrid/systemTopics/eventSubscriptions/getFullUrl/action',
+* 'Microsoft.EventGrid/systemTopics/eventSubscriptions/getDeliveryAttributes/action',
+* 'Microsoft.EventGrid/systemTopics/read',
+* 'Microsoft.EventGrid/systemTopics/write',
+* 'Microsoft.EventGrid/systemTopics/delete',
+* 'Microsoft.EventGrid/eventSubscriptions/write',
+* 'Microsoft.Storage/storageAccounts/write'
+
++
+Additionally, the assignable scope must be set to subscription scope and *not* resource group scope if you plan to implement Continuous Sync in Azure.
+
+. The following permissions are only required if you plan to choose your own security for data broker creation:
+* "Microsoft.Network/networkSecurityGroups/securityRules/read"
+* "Microsoft.Network/networkSecurityGroups/read"
+
+== Authentication method
+
+When you deploy the data broker, you'll need to choose an authentication method for the virtual machine: a password or an SSH public-private key pair.
+
+For help with creating a key pair, refer to https://docs.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys[Azure Documentation: Create and use an SSH public-private key pair for Linux VMs in Azure^].
+
+== Create the data broker
+
+There are a few ways to create a new data broker. These steps describe how to install a data broker in Azure when you create a sync relationship.
+
+.Steps
+
+
+. link:task-login-copyandsync.html[Log in to Copy and Sync].
+
+. Select *Create New Sync*.
+
+. On the *Define Sync Relationship* page, choose a source and target and select *Continue*.
++
+Complete the steps until you reach the *Data Broker Group* page.
+
+. On the *Data Broker Group* page, select *Create Data Broker* and then select *Microsoft Azure*.
++
+image:screenshot-azure.png["A screenshot of the Data Broker page that enables you to choose between an AWS, Azure, Google Cloud, and On-Prem data broker."]
+
+. Enter a name for the data broker and select *Continue*.
+
+. If you're prompted, log in to your Microsoft account. If you're not prompted, select *Log in to Azure*.
++
+The form is owned and hosted by Microsoft. Your credentials are not provided to NetApp.
+
+. Choose a location for the data broker and enter basic details about the virtual machine.
++
+image:screenshot_azure_data_broker.png["A screenshot of the Azure deployment page that shows the following fields: Subscription, Azure region, VNet, Subnet, VM Name, User Name, Authentication Method, and Resource Group."]
++
+NOTE: If you plan to implement a Continuous Sync relationship, you must assign a custom role to your data broker. This can also be done manually after the broker is created.
+
+. Specify a proxy configuration, if a proxy is required for internet access in the VNet.
+
+. Select *Continue*. If you would like to add S3 permissions to your data broker, enter your AWS access and secret keys.
+
+. Select *Continue* and keep the page open until the deployment is complete.
++
+The process can take up to 7 minutes.
+
+. In Copy and Sync, select *Continue* once the data broker is available.
+
+. Complete the pages in the wizard to create the new sync relationship.
+
+.Result
+
+You have deployed a data broker in Azure and created a new sync relationship. You can use this data broker with additional sync relationships.
+
+.Getting a message about needing admin consent?
+****
+If Microsoft notifies you that admin approval is required because Copy and Sync needs permission to access resources in your organization on your behalf, then you have two options:
+
+. Ask your AD admin to provide you with the following permission:
++
+In Azure, go to *Admin Centers > Azure AD > Users and Groups > User Settings* and enable *Users can consent to apps accessing company data on their behalf*.
+
+. Ask your AD admin to consent on your behalf to *CloudSync-AzureDataBrokerCreator* using the following URL (this is the admin consent endpoint):
++
+\https://login.microsoftonline.com/{FILL HERE YOUR TENANT ID}/v2.0/adminconsent?client_id=8ee4ca3a-bafa-4831-97cc-5a38923cab85&redirect_uri=https://cloudsync.netapp.com&scope=https://management.azure.com/user_impersonationhttps://graph.microsoft.com/User.Read
++
+As shown in the URL, our app URL is \https://cloudsync.netapp.com and the application client ID is 8ee4ca3a-bafa-4831-97cc-5a38923cab85.
+****
+
+== Details about the data broker VM
+
+Copy and Sync creates a data broker in Azure using the following configuration.
+
+Node.js compatibility::
+v21.2.0
+
+VM type::
+Standard DS4 v2
+
+vCPUs::
+8
+
+RAM::
+28 GB
+
+Operating system::
+Rocky Linux 9.0
+
+Disk size and type::
+64 GB Premium SSD

@@ -1,0 +1,55 @@
+---
+sidebar: sidebar
+permalink: concept-licensing.html
+keywords: licenses, licensing, subscriptions, annual subscription, paygo, hourly subscription, bluexp
+summary: There are two ways to pay for sync relationships after your 14-day free trial ends. The first option is to subscribe from AWS or Azure to pay-as-you-go or to pay annually. The second option is to purchase licenses directly from NetApp.
+---
+
+= Licensing overview for NetApp Copy and Sync 
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+There are two ways to pay for NetApp Copy and Sync relationships after your 14-day free trial ends. The first option is to subscribe from AWS or Azure to pay-as-you-go or to pay annually. The second option is to purchase licenses directly from NetApp.
+
+Licenses should be managed through NetApp Copy and Sync or the applicable website and *not* through the NetApp Console.
+
+== Marketplace subscription
+
+Subscribing to Copy and Sync from AWS or Azure enables you to pay at an hourly rate, or to pay annually. link:task-licensing.html[You can subscribe through either AWS or Azure], depending on where you want to be billed.
+
+=== Hourly subscription
+
+With an hourly pay-as-you-go subscription, you're charged hourly based on the number of sync relationships that you create.
+
+* https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-sync-service?tab=PlansAndPrice[View pricing in Azure^]
+* https://aws.amazon.com/marketplace/pp/B01LZV5DUJ[View pay-as-you-go pricing in AWS^]
+
+=== Annual subscription
+
+An annual subscription provides a license for 20 sync relationships that you pay for up front. If you go above 20 sync relationships and you've subscribed through AWS, you pay for the additional relationships by the hour.
+
+https://aws.amazon.com/marketplace/pp/B06XX5V3M2[View annual pricing in AWS^]
+
+== Licenses from NetApp
+
+Another way to pay for sync relationships up front is by purchasing licenses directly from NetApp. Each license enables you to create up to 20 sync relationships.
+
+You can use these licenses with an AWS or Azure subscription. For example, if you have 25 sync relationships, you can pay for the first 20 sync relationships using a license and then pay-as-you-go from AWS or Azure with the remaining 5 sync relationships.
+
+link:task-licensing.html[Learn how to purchase licenses and add them to NetApp Copy and Sync].
+
+=== License terms
+
+Customers who purchase a Bring Your Own License (BYOL) to Copy and Sync should be aware of limitations associated with the license entitlement.
+
+* Customers are entitled to leverage the BYOL license for a term not to exceed one year from the date of delivery.
+
+* Customers are entitled to leverage the BYOL license to establish and not to exceed a total of 20 individual connections between a source and a target (each a “sync relationship”).
+
+* A customer’s entitlement expires at the conclusion of the one-year license term, irrespective as to whether Customer has reached the 20 sync relationship limitation.
+
+* In the event the Customer chooses to renew its license, unused sync relationships associated from the previous license grant DO NOT roll over to the license renewal.
