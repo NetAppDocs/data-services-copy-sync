@@ -17,7 +17,7 @@ You can manage sync relationships in NetApp Copy and Sync at any time by immedia
 
 == Perform an immediate data sync
 
-Rather than wait for the next scheduled sync, you can press a button to immediately sync data between the source and target.
+Rather than wait for the next scheduled sync, you can immediately sync data between the source and target.
 
 .Steps
 
