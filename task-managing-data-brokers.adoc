@@ -1,0 +1,291 @@
+---
+sidebar: sidebar
+permalink: task-managing-data-brokers.html
+keywords: manage data brokers, manage data broker groups, data broker performance, data broker configuration, data broker removal, remove data broker, delete data broker, groups, data broker group, rename data broker group, add data broker, data broker cpu, data broker ram, data broker status, edit group name, change group name, modify group name
+summary: A data broker syncs data from a source location to a target location. A data broker is required for each sync relationship that you create. Manage data brokers by adding a new data broker to a group, by viewing information about data brokers, and more.
+---
+
+= Manage data broker groups in NetApp Copy and Sync
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+A data broker group in NetApp Copy and Sync syncs data from a source location to a target location. At least one data broker is required in a group for each sync relationship that you create. Manage data broker groups by adding a new data broker to a group, by viewing information about groups, and more.
+
+== How data broker groups work
+
+A data broker group can include one or more data brokers. Grouping data brokers together can help improve the performance of sync relationships.
+
+=== Groups can manage several relationships
+
+A data broker group can manage one or more sync relationships at a time.
+
+For example, let's say you have three relationships:
+
+* Relationship 1 is managed by data broker group A
+* Relationship 2 is managed by data broker group B
+* Relationship 3 is managed by data broker group A
+
+You want to accelerate the performance of relationship 1 so you add a new data broker to data broker group A. Because group A also manages sync relationship 3, the sync performance for relationship is automatically accelerated as well.
+
+=== Number of data brokers in a group
+
+In many cases, a single data broker can meet the performance requirements for a sync relationship. If it doesn't, you can accelerate sync performance by adding additional data brokers to the group. But you should first check other factors that can impact sync performance. link:faq.html#how-many-data-brokers-are-required-in-a-group[Learn more about how to determine when multiple data brokers are required].
+
+== Security recommendations
+
+To ensure the security of your data broker machine, NetApp recommends the following:
+
+*	SSH should not permit X11 Forwarding
+*	SSH should not permit TCP connection forwarding
+*	SSH should not permit tunnels
+*	SSH should not accept client environment variables
+
+These security recommendations can help prevent unauthorized connections to the data broker machine.
+
+== Add a new data broker to a group
+
+There are several ways to create a new data broker:
+
+* When creating a new sync relationship
++
+link:task-creating-relationships.html[Learn how to create a new data broker when creating a sync relationship].
+
+* From the *Manage Data Brokers* page by selecting *Add New Data Broker* which creates the data broker in a new group
+
+* From the *Manage Data Brokers* page by creating a new data broker in an existing group
+
+.Before you get started
+
+* You can't add data brokers to a group that manages an encrypted sync relationship.
+
+* If you want to create a data broker in an existing group, the data broker must be an on-prem data broker or the same type of data broker.
++
+For example, if a group includes an AWS data broker, then you can create an AWS data broker or on-prem data broker in that group. You can't create an Azure data broker or Google Cloud data broker because they aren't the same data broker type.
+
+.Steps to create a data broker in a new group
+
+
+. link:task-login-copyandsync.html[Log in to Copy and Sync].
+. Select *Sync > Manage Data Brokers*.
+
+. Select *Add New Data Broker*.
+
+. Follow the prompts to create the data broker.
++
+For help, refer to the following pages:
++
+* link:task-installing-aws.html[Create a data broker in AWS]
+* link:task-installing-azure.html[Create a data broker in Azure]
+* link:task-installing-gcp.html[Create a data broker in Google Cloud]
+* link:task-installing-linux.html[Installing the data broker on a Linux host]
+
+.Steps to create a data broker in an existing group
+
+
+. link:task-login-copyandsync.html[Log in to Copy and Sync].
+. Select *Sync > Manage Data Brokers*.
+
+. Select the action menu and select *Add Data Broker*.
++
+image:screenshot_sync_group_add.png[A screenshot of the action menu that's available for each individual data broker in a group.]
+
+. Follow the prompts to create the data broker in the group.
++
+For help, refer to the following pages:
++
+* link:task-installing-aws.html[Create a data broker in AWS]
+* link:task-installing-azure.html[Create a data broker in Azure]
+* link:task-installing-gcp.html[Create a data broker in Google Cloud]
+* link:task-installing-linux.html[Installing the data broker on a Linux host]
+
+== Edit a group's name
+
+Change the name of a data broker group at any time.
+
+.Steps
+
+
+. link:task-login-copyandsync.html[Log in to Copy and Sync].
+. Select *Sync > Manage Data Brokers*.
+
+. Select the action menu and select *Edit Group Name*.
++
+image:screenshot_sync_group_edit.gif[A screenshot of the action menu that's available for each individual data broker in a group.]
+
+. Enter a new name and select *Save*.
+
+.Result
+
+Copy and Sync updates the name of the data broker group.
+
+== Set up a unified configuration
+
+If a sync relationship encounters errors during the sync process, unifying the concurrency of the data broker group can help to decrease the number of sync errors. Be aware that changes to the group's configuration can affect performance by slowing down the transfer.
+
+We don't recommend changing the configuration on your own. You should consult with NetApp to understand when to change the configuration and how to change it.
+
+.Steps
+
+
+. link:task-login-copyandsync.html[Log in to Copy and Sync].
+. Select *Manage Data Brokers*.
+
+. Select the Settings icon for a data broker group.
++
+image:screenshot_sync_group_settings.png[A screenshot that shows the Settings icon for a data broker group.]
+
+. Change the settings as needed and then select *Unify Configuration*.
++
+Note the following:
++
+* You can pick and choose which settings to change--you don't need to change all four at once.
+* After a new configuration is sent to a data broker, the data broker automatically restarts and uses the new configuration.
+* It can take up to a minute until this change takes place and is visible in the Copy and Sync interface.
+* If a data broker isn't running, it's configuration won't change because Copy and Sync can't communicate with it. The configuration will change after the data broker restarts.
+* After you set a unified configuration, any new data brokers will automatically use the new configuration.
+
+== Move data brokers between groups
+
+Move a data broker from one group to another group if you need to accelerate the performance of the target data broker group.
+
+For example, if a data broker is no longer managing a sync relationship, you can easily move it to another group that is managing sync relationships.
+
+.Limitations
+
+* If a data broker group is managing a sync relationship and there's only one data broker in the group, then you can't move that data broker to another group.
+* You can't move a data broker to or from a group that manages encrypted sync relationships.
+* You can't move a data broker that is currently being deployed.
+
+.Steps
+
+. link:task-login-copyandsync.html[Log in to Copy and Sync].
+. Select *Sync > Manage Data Brokers*.
+
+. Select image:screenshot_sync_group_expand.gif[A screenshot of the button that enables you to expand the list of data brokers in a group.] to expand the list of data brokers in a group.
+
+. Select the action menu for a data broker and select *Move Data Broker*.
++
+image:screenshot_sync_group_remove.png[A screenshot of the action menu that's available for each individual data broker group.]
+
+. Create a new data broker group or select an existing data broker group.
+
+. Select *Move*.
+
+.Result
+
+Copy and Sync moves the data broker to a new or existing data broker group. If there are no other data brokers in the previous group, then Copy and Sync deletes it.
+
+== Update proxy configuration
+
+Update the proxy configuration for a data broker by adding details about a new proxy configuration or by editing the existing proxy configuration.
+
+.Steps
+
+. link:task-login-copyandsync.html[Log in to Copy and Sync].
+. Select *Sync > Manage Data Brokers*.
+
+. Select image:screenshot_sync_group_expand.gif[A screenshot of the button that enables you to expand the list of data brokers in a group.] to expand the list of data brokers in a group.
+
+. Select the action menu for a data broker and select *Edit Proxy Configuration*.
+
+. Specify details about the proxy: host name, port number, user name, and password.
+
+. Select *Update*.
+
+.Result
+
+Copy and Sync updates the data broker to use the proxy configuration for internet access.
+
+== View a data broker's configuration
+
+You might want to view details about a data broker to identify things like its host name, IP address, available CPU and RAM, and more.
+
+Copy and Sync provides the following details about a data broker:
+
+* Basic information: Instance ID, host name, etc.
+* Network: Region, network, subnet, private IP, etc.
+* Software: Linux distribution, data broker version, etc.
+* Hardware: CPU and RAM
+* Configuration: Details about the data broker's two kinds of main processes--scanner and transferrer
++
+TIP: The scanner scans the source and target and decides what should be copied. The transferrer does the actual copying. NetApp personnel might use these configuration details to suggest actions that can optimize performance.
+
+.Steps
+
+
+. link:task-login-copyandsync.html[Log in to Copy and Sync].
+. Select *Sync > Manage Data Brokers*.
+
+. Select image:screenshot_sync_group_expand.gif[A screenshot of the button that enables you to expand the list of data brokers in a group.] to expand the list of data brokers in a group.
+
+. Select image:screenshot_sync_group_expand.gif[A screenshot of the button that enables you to expand details about a data broker.] to view details about a data broker.
++
+image:screenshot_sync_data_broker_details.gif[A screenshot of information about a data broker.]
+
+== Address issues with a data broker
+
+Copy and Sync displays a status for each data broker that can help you troubleshoot issues.
+
+.Steps
+
+. link:task-login-copyandsync.html[Log in to Copy and Sync].
+. Identify any data brokers that have a status of "Unknown" or "Failed."
++
+image:screenshot_sync_broker_status.gif[A screenshot of the Copy and Sync status display where a data broker has an "unknown" status.]
+
+. Hover over the image:screenshot_sync_status_icon.gif[An "info" icon.] icon to see the failure reason.
+
+. Correct the issue.
++
+For example, you might need to simply restart the data broker if it's offline, or you might need to remove data broker if the initial deployment failed.
+
+== Remove a data broker from a group
+
+You might remove a data broker from a group if it's no longer needed or if the initial deployment failed. This action only deletes the data broker from Copy and Sync's records. You'll need to manually delete the data broker and any additional cloud resources yourself.
+
+.Things you should know
+
+* Copy and Sync deletes a group when you remove the last data broker from the group.
+* You can't remove the last data broker from a group if there is a relationship using that group.
+
+.Steps
+
+. link:task-login-copyandsync.html[Log in to Copy and Sync].
+. Select *Sync > Manage Data Brokers*.
+
+. Select image:screenshot_sync_group_expand.gif[A screenshot of the button that enables you to expand the list of data brokers in a group.] to expand the list of data brokers in a group.
+
+. Select the action menu for a data broker and select *Remove Data Broker*.
++
+image:screenshot_sync_group_remove.gif[A screenshot of the action menu that's available for each individual data broker group.]
+
+. Select *Remove Data Broker*.
+
+.Result
+
+Copy and Sync removes the data broker from the group.
+
+== Delete a data broker group
+
+If a data broker group no longer manages any sync relationships, you can delete the group, which removes all of the data brokers from Copy and Sync.
+
+Data brokers that Copy and Sync removes are only deleted from Copy and Sync's records. You'll need to manually delete the data broker instance from your cloud provider and any additional cloud resources.
+
+.Steps
+
+. link:task-login-copyandsync.html[Log in to Copy and Sync].
+. Select *Sync > Manage Data Brokers*.
+
+. Select the action menu and select *Delete Group*.
++
+image:screenshot_sync_group_add.png[A screenshot of the action menu that's available for each individual data broker in a group.]
+
+. To confirm, enter the name of the group and select *Delete Group*.
+
+.Result
+
+Copy and Sync removes the data brokers and deletes the group.

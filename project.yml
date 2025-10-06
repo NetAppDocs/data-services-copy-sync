@@ -1,12 +1,89 @@
 settings:
-  name: "Product Name"
+  name: NetApp Copy and Sync
+  harmony_integration: maestro
   internal:
     pdf_enabled: true
   prod:
     pdf_enabled: true
     harmony_enabled: true
+  rss_page: "whats-new.html"
 
-sidebar: 
+sidebar:
   entries:
-  - title: Legal notices
-    url: /legal-notices.html
+    - title: NetApp Copy and Sync docs
+      url: /index.html
+    - title: Release notes
+      entries:
+        - title: What's new
+          url: /whats-new.html
+        - title: Limitations
+          url: /reference-limitations.html
+    - title: Get started
+      entries:
+        - title: Learn about NetApp Copy and Sync
+          url: /concept-cloud-sync.html
+        - title: Quick start
+          url: /task-quick-start.html
+        - title: View supported sync relationships
+          url: /reference-supported-relationships.html
+        - title: Prepare the source and target
+          url: /reference-requirements.html
+        - title: Prepare networking
+          url: /reference-networking.html
+        - title: Log in to NetApp Copy and Sync
+          url: /task-login-copyandsync.html
+        - title: Install a data broker
+          entries:
+            - title: Install in AWS
+              url: /task-installing-aws.html
+            - title: Install in Azure
+              url: /task-installing-azure.html
+            - title: Install in Google Cloud
+              url: /task-installing-gcp.html
+            - title: Install on a Linux host
+              url: /task-installing-linux.html
+    - title: Use NetApp Copy and Sync
+      entries:
+        - title: Sync data between a source and target
+          entries:
+            - title: Prepare a data broker to sync data between object storage
+              url: /task-prepare-object-storage.html
+            - title: Create a sync relationship
+              url: /task-creating-relationships.html
+            - title: Copy ACLs from an SMB share
+              url: /task-copying-acls.html
+            - title: Encrypt NFS data in flight
+              url: /task-nfs-encryption.html
+            - title: Use secrets from HashiCorp Vault
+              url: /task-external-vault.html
+        - title: Set up licensing
+          url: /task-licensing.html
+        - title: Manage sync relationships
+          url: /task-managing-relationships.html
+        - title: Manage data brokers
+          url: /task-managing-data-brokers.html
+        - title: View reports to tune your configuration
+          url: /task-managing-reports.html
+        - title: Uninstall a data broker
+          url: /task-uninstalling.html
+    - title: Automate with the REST API
+      url: /api-sync.html
+    - title: Concepts
+      entries:
+        - title: Licensing
+          url: /concept-licensing.html
+        - title: Data privacy
+          url: /concept-privacy.html
+        - title: FAQ
+          url: /faq.html
+    - title: Knowledge and support
+      entries:
+        - title: Register for support
+          url: /task-support-registration.html
+        - title: Get help
+          url: /task-get-help.html
+    - title: Legal notices
+      url: /legal-notices.html
+product-family:
+  name: NetApp Data Services
+  repo: data-services-family

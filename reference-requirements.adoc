@@ -1,0 +1,241 @@
+---
+sidebar: sidebar
+permalink: reference-requirements.html
+keywords: networking, nfs, cifs, smb, version, connection, google, gcp, azure, blob, service account, resource, permissions, networking, version, ntp, network, protocol, aws efs requirements, efs requirements, s3 requirements, azure blob requirements, blob requirements, azure netapp files, cifs requirements, smb requirements, google cloud storage, gcp, ibm cloud object storage, storagegrid, storage tier, blob storage tier, storage class, s3 storage class, nfs versions, smb versions, box
+summary: Verify that your source and targets meet the following requirements.
+---
+
+= Prepare the source and target in NetApp Copy and Sync
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+Verify that your source and targets meet the following requirements in NetApp Copy and Sync.
+
+== Networking
+
+* The source and target must have a network connection to the data broker group.
++
+For example, if an NFS server is in your data center and a data broker is in AWS, then you need a network connection (VPN or Direct Connect) from your network to the VPC.
+
+* NetApp recommends configuring the source, the target, and data brokers to use a Network Time Protocol (NTP) service. The time difference between the three components should not exceed 5 minutes.
+
+== Target directory
+
+When you create a sync relationship, Copy and Sync enables you to select an existing target directory and then optionally create a new folder inside that directory. So be sure that your preferred target directory already exists.
+
+== Permissions to read directories
+
+In order to show every directory or folder in a source or target, Copy and Sync needs read permissions on the directory or folder.
+
+NFS:: Permissions must be defined on the source/target with uid/gid on files and directories.
+
+Object storage::
+* For AWS and Google Cloud, a data broker must have list object permissions (these permissions are provided by default if you follow the data broker installation steps).
+* For Azure, StorageGRID, and IBM, the credentials that you enter when setting up a sync relationship must have list object permissions.
+
+SMB:: The SMB credentials that you enter when setting up a sync relationship must have list folder permissions.
+
+NOTE: The data broker ignores the following directories by default: .snapshot, ~snapshot, .copy-offload
+
+== [[s3]]Amazon S3 bucket requirements
+
+Make sure that your Amazon S3 bucket meets the following requirements.
+
+=== Supported data broker locations for Amazon S3
+
+Sync relationships that include S3 storage require a data broker deployed in AWS or on your premises. In either case, Copy and Sync prompts you to associate the data broker with an AWS account during installation.
+
+* link:task-installing-aws.html[Learn how to deploy the AWS data broker]
+* link:task-installing-linux.html[Learn how to install the data broker on a Linux host]
+
+=== Supported AWS regions
+
+All regions are supported except for the China regions.
+
+=== Permissions required for S3 buckets in other AWS accounts
+
+When setting up a sync relationship, you can specify an S3 bucket that resides in an AWS account that isn't associated with a data broker.
+
+link:media/aws_iam_policy_s3_bucket.json[The permissions included in this JSON file^] must be applied to that S3 bucket so a data broker can access it. These permissions enable the data broker to copy data to and from the bucket and to list the objects in the bucket.
+
+Note the following about the permissions included in the JSON file:
+
+. _<BucketName>_ is the name of the bucket that resides in the AWS account that isn't associated with a data broker.
+
+. _<RoleARN>_ should be replaced with one of the following:
+* If a data broker was manually installed on a Linux host, _RoleARN_ should be the ARN of the AWS user for which you provided AWS credentials when deploying a data broker.
+
+* If a data broker was deployed in AWS using the CloudFormation template, _RoleARN_ should be the ARN of the IAM role created by the template.
++
+You can find the Role ARN by going to the EC2 console, selecting the data broker instance, and then selecting the IAM role from the Description tab. You should then see the Summary page in the IAM console that contains the Role ARN.
++
+image:screenshot_iam_role_arn.gif[A screenshot of the AWS IAM console showing a Role ARN.]
+
+== [[blob]]Azure Blob storage requirements
+
+Make sure that your Azure Blob storage meets the following requirements.
+
+=== Supported data broker locations for Azure Blob
+
+A data broker can reside in any location when a sync relationship includes Azure Blob storage.
+
+=== Supported Azure regions
+
+All regions are supported except for the China, US Gov, and US DoD regions.
+
+=== Connection string for relationships that include Azure Blob and NFS/SMB
+
+When creating a sync relationship between an Azure Blob container and an NFS or SMB server, you need to provide Copy and Sync with the storage account connection string:
+
+image:screenshot_connection_string.gif["Shows a connection string, which is available from the Azure portal by selecting a storage account and then selecting Access keys."]
+
+If you want to sync data between two Azure Blob containers, then the connection string must include a https://docs.microsoft.com/en-us/azure/storage/common/storage-dotnet-shared-access-signature-part-1[shared access signature^] (SAS). You also have the option to use a SAS when syncing between a Blob container and an NFS or SMB server.
+
+The SAS must allow access to the Blob service and all resource types (Service, Container, and Object). The SAS must also include the following permissions:
+
+* For the source Blob container: Read and List
+* For the target Blob container: Read, Write, List, Add, and Create
+
+image:screenshot_connection_string_sas.gif["Shows a shared access signature, which is available from the Azure portal by selecting a storage account and then selecting Shared access signature."]
+
+NOTE: If you choose to implement a Continuous Sync relationship that includes an Azure Blob container, you can use a regular connection string or SAS connection string. If using a SAS connection string, it must not be set to expire in the near future.
+
+== Azure Data Lake Storage Gen2
+
+When creating a sync relationship that includes Azure Data Lake, you need to provide Copy and Sync with the storage account connection string. It must be a regular connection string, not a shared access signature (SAS).
+
+== Azure NetApp Files requirement
+
+Use the Premium or Ultra service level when you sync data to or from Azure NetApp Files. You might experience failures and performance issues if the disk service level is Standard.
+
+TIP: Consult a solutions architect if you need help determining the right service level. The volume size and volume tier determines the throughput that you can get.
+
+https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-service-levels#throughput-limits[Learn more about Azure NetApp Files service levels and throughput^].
+
+== Box requirements
+
+* To create a sync relationship that includes Box, you'll need to provide the following credentials:
+
+** Client ID
+** Client secret
+** Private key
+** Public key ID
+** Passphrase
+** Enterprise ID
+
+* If you create a sync relationship from Amazon S3 to Box, you must use a data broker group that has a unified configuration where the following settings are set to 1:
++
+** Scanner Concurrency
+** Scanner Processes Limit
+** Transferrer Concurrency
+** Transferrer Processes Limit
+
++
+link:task-managing-data-brokers.html#set-up-a-unified-configuration[Learn how to define a unified configuration for a data broker group^].
+
+== [[google]]Google Cloud Storage bucket requirements
+
+Make sure that your Google Cloud Storage bucket meets the following requirements.
+
+=== Supported data broker locations for Google Cloud Storage
+
+Sync relationships that include Google Cloud Storage require a data broker deployed in Google Cloud or on your premises. Copy and Sync guides you through the data broker installation process when you create a sync relationship.
+
+* link:task-installing-gcp.html[Learn how to deploy the Google Cloud data broker]
+* link:task-installing-linux.html[Learn how to install the data broker on a Linux host]
+
+=== Supported Google Cloud regions
+
+All regions are supported.
+
+=== Permissions for buckets in other Google Cloud projects
+
+When setting up a sync relationship, you can choose from Google Cloud buckets in different projects, if you provide the required permissions to the data broker's service account. link:task-installing-gcp.html[Learn how to set up the service account].
+
+=== Permissions for a SnapMirror destination
+
+If the source for a sync relationship is a SnapMirror destination (which is read-only), "read/list" permissions are sufficient to sync data from the source to a target.
+
+=== Encrypting a Google Cloud bucket
+
+You can encrypt a target Google Cloud bucket with a customer-managed KMS key or the default, Google-managed key. If the bucket already has a KMS encryption added to it, it will override the default Google-managed encryption.
+
+To add a customer-managed KMS key, you will need to use a data broker with the https://docs.netapp.com/us-en/bluexp-copy-sync/task-installing-gcp.html#permissions-required-for-the-service-account[correct permissions], and the key must be in the same region as the bucket.
+
+== Google Drive
+
+When you set up a sync relationship that includes Google Drive, you'll need to provide the following:
+
+* The email address for a user who has access to the Google Drive location where you want to sync data
+* The email address for a Google Cloud service account that has permissions to access Google Drive
+* A private key for the service account
+
+To set up the service account, follow the instructions in Google documentation:
+
+* https://developers.google.com/admin-sdk/directory/v1/guides/delegation#create_the_service_account_and_credentials[Create the service account and credentials^]
+* https://developers.google.com/admin-sdk/directory/v1/guides/delegation#delegate_domain-wide_authority_to_your_service_account[Delegate domain-wide authority to your service account^]
+
+When you edit the OAuth Scopes field, enter the following scopes:
+
+*	\https://www.googleapis.com/auth/drive
+*	\https://www.googleapis.com/auth/drive.file
+
+== NFS server requirements
+
+* The NFS server can be a NetApp system or a non-NetApp system.
+* The file server must allow a data broker host to access the exports over the required ports.
+** 111 TCP/UDP
+** 2049 TCP/UDP
+** 5555 TCP/UDP
+* NFS versions 3, 4.0, 4.1, and 4.2 are supported.
++
+The desired version must be enabled on the server.
+* If you want to sync NFS data from an ONTAP system, ensure that access to the NFS export list for an SVM is enabled (vserver nfs modify -vserver _svm_name_ -showmount enabled).
++
+NOTE: The default setting for showmount is _enabled_ starting with ONTAP 9.2.
+
+== ONTAP requirements
+
+If the sync relationship includes Cloud Volumes ONTAP or an on-prem ONTAP cluster and you selected NFSv4 or later, then you'll need to enable NFSv4 ACLs on the ONTAP system. This is required to copy the ACLs.
+
+== ONTAP S3 Storage requirements
+
+When you set up a sync relationship that includes https://docs.netapp.com/us-en/ontap/object-storage-management/index.html[ONTAP S3 Storage^], you'll need to provide the following:
+
+* The IP address of the LIF that's connected to ONTAP S3
+* The access key and secret key that ONTAP is configured to use
+
+== SMB server requirements
+
+* The SMB server can be a NetApp system or a non-NetApp system.
+*	You need to provide Copy and Sync with credentials that have permissions on the SMB server.
+** For a source SMB server, the following permissions are required: list and read.
++
+Members of the Backup Operators group are supported with a source SMB server.
+** For a target SMB server, the following permissions are required: list, read, and write.
+* The file server must allow a data broker host to access the exports over the required ports.
+** 139 TCP
+** 445 TCP
+** 137-138 UDP
+* SMB versions 1.0, 2.0, 2.1, 3.0 and 3.11 are supported.
+* Grant the "Administrators" group with "Full Control" permissions to the source and target folders.
++
+If you don’t grant this permission, then the data broker might not have sufficient permissions to get the ACLs on a file or directory. If this occurs, you’ll receive the following error: "getxattr error 95"
+
+=== SMB limitation for hidden directories and files
+
+An SMB limitation affects hidden directories and files when syncing data between SMB servers. If any of the directories or files on the source SMB server were hidden through Windows, the hidden attribute isn't copied to the target SMB server.
+
+=== SMB sync behavior due to case-insensitivity limitation
+
+The SMB protocol is case-insensitive, which means uppercase and lowercase letters are treated as being the same. This behavior can result in overwritten files and directory copy errors, if a sync relationship includes an SMB server and data already exists on the target.
+
+For example, let's say that there's a file named "a" on the source and a file named "A" on the target. When Copy and Sync copies the file named "a" to the target, file "A" is overwritten by file "a" from the source.
+
+In the case of directories, let's say that there's a directory named "b" on the source and a directory named "B" on the target. When Copy and Sync tries to copy the directory named "b" to the target, Copy and Sync receives an error that says the directory already exists. As a result, Copy and Sync always fails to copy the directory named “b.”
+
+The best way to avoid this limitation is to ensure that you sync data to an empty directory.

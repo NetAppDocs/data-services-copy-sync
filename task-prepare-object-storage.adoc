@@ -1,0 +1,47 @@
+---
+sidebar: sidebar
+permalink: task-prepare-object-storage.html
+keywords: prepare data broker, data broker, object storage, sync, scanner, configure scanner, bluexp, copy and sync
+summary: "If you're planning to sync data from object storage to object storage (for example, Amazon S3 to Azure Blob) using NetApp Copy and Sync, then you need to prepare the data broker group before you create the sync relationship."
+---
+
+= Prepare a data broker to sync data between object storage in NetApp Copy and Sync
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+If you're planning to sync data from object storage to object storage (for example, Amazon S3 to Azure Blob) in NetApp Copy and Sync, then you need to prepare the data broker group before you create the sync relationship.
+
+.About this task
+
+To prepare the data broker group, you'll need to modify the configuration of the scanner. If you don't modify the configuration, you might notice performance issues for this sync relationship.
+
+.Before you begin
+
+The data broker group that you use to sync data from object storage to object storage should only manage these types of sync relationships. If the data broker group manages a different type of sync relationship (for example, NFS to NFS or object storage to SMB), then the performance of those sync relationships might be negatively affected.
+
+.Steps
+
+
+. link:task-login-copyandsync.html[Log in to Copy and Sync].
+. From Copy and Sync, select *Manage Data Brokers*.
+
+. Select image:icon-settings.png[A screenshot of the settings icon]
+
+. Update the scanner configuration:
+
+.. Change *Scanner Concurrency* to *1*.
+.. Change *Scanner Processes Limit* to *1*.
+
+. Select *Unify Configuration*.
+
+.Result
+
+Copy and Sync updates the configuration of the data broker group.
+
+.What's next?
+
+You can now create the sync relationship between object storage using the data broker group that you just configured.

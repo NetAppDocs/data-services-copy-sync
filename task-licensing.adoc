@@ -1,0 +1,134 @@
+---
+sidebar: sidebar
+permalink: task-licensing.html
+keywords: license, subscription, registering, subscribing, subscribing in aws, subscribing in azure, subscribing to aws, subscribing to azure, aws marketplace, azure marketplace, netapp license, byol license, purchase a license, license settings, pay for relationships, paygo, annual, pay-as-you-go
+summary: There are two ways to pay for sync relationships after your 14-day free trial ends. The first option is to pay-as-you-go. The second option is to purchase licenses directly from NetApp.
+---
+
+= Pay for sync relationships after your NetApp Copy and Sync free trial ends
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+There are two ways to pay for sync relationships after your 14-day free trial ends for NetApp Copy and Sync. The first option is to subscribe from AWS or Azure to pay-as-you-go or to pay annually. The second option is to purchase licenses directly from NetApp.
+
+You can subscribe from either the AWS Marketplace or the Azure Marketplace. You can't subscribe from both.
+
+You have the option to use licenses from NetApp with a marketplace subscription. For example, if you have 25 sync relationships, you can pay for the first 20 sync relationships using a license and then pay-as-you-go from AWS or Azure with the remaining 5 sync relationships.
+
+link:concept-licensing.html[Learn more about how licenses work].
+
+If you don't immediately pay after your free trial ends, you won't be able to create any additional relationships. Existing relationships are not deleted, but you cannot make any changes to them until you subscribe or enter a license. 
+
+Licenses should be managed through NetApp Copy and Sync or the applicable website and *not* through the NetApp Console subscriptions.
+
+== [[aws]]Subscribe from AWS
+
+AWS enables you to pay-as-you-go or to pay annually.
+
+.Steps to pay-as-you-go
+
+. From the NetApp Console navigation menu, select *Mobility > Copy and Sync*.
+
+. Select *Licensing*.
+
+. Select *AWS*.
+
+. Select *Subscribe* and then select *Continue*.
+
+. Subscribe from the AWS Marketplace, and then log back in to Copy and Sync to complete the registration.
++
+The following video shows the process:
++
+video::796ffd6d-cade-4750-8504-b24c010b225d[panopto, title="Subscribe to Copy and Sync from the AWS Marketplace"]
+
+.Steps to pay annually
+
+. https://aws.amazon.com/marketplace/pp/B06XX5V3M2[Go to the AWS Marketplace page^].
+
+. Select *Continue to Subscribe*.
+
+. Select your contract options and then select *Create contract*.
+
+== [[azure]]Subscribe from Azure
+
+Azure enables you to pay-as-you-go or to pay annually.
+
+.What you'll need
+
+An Azure user account that has Contributor or Owner permissions in the relevant subscription.
+
+.Steps
+
+. From the NetApp Console navigation menu, select *Mobility > Copy and Sync*.
+
+. Select *Licensing*.
+
+. Select *Azure*.
+
+. Select *Subscribe* and then select *Continue*.
+
+. In the Azure portal, select *Create*, select your options, and then select *Subscribe*.
++
+Select *Monthly* to pay by the hour, or *Yearly* to pay for a year up front.
+
+. When deployment is complete, select the name of the SaaS resource in the notification pop-up.
+
+. Select *Configure Account* to return to Copy and Sync.
++
+The following video shows the process:
++
+video::a6a39447-b7b1-42f6-9c89-b24c010b21b9[panopto, title="Subscribe to Copy and Sync from the Azure Marketplace"]
+
+== [[licenses]]Purchase licenses from NetApp and add them to Copy and Sync
+
+To pay for your sync relationships up front, you must purchase one or more licenses and add them to Copy and Sync.
+
+.What you'll need
+
+You'll need the serial number for your license and the user name and password for the NetApp Support Site account that the license is associated with.
+
+.Steps
+
+. Purchase a license by mailto:ng-cloudsync-contact@netapp.com?subject=Cloud%20Sync%20Service%20-%20BYOL%20License%20Purchase%20Request[contacting NetApp].
+
+
+. link:task-login-copyandsync.html[Log in to Copy and Sync].
+
+. Select *Licensing*.
+
+. Select *Add License* and add the required information:
+
+.. Enter the serial number.
+
+.. Select the NetApp Support Site account that is associated with the license that you're adding:
++
+* If your account was already added to the NetApp Console, select it from the drop-down list.
+* If your account wasn't added yet, select *Add NSS Credentials*, enter the user name and password, select *Register*, and then select it from the drop-down list.
+
+.. Select *Add*.
+
+== Update a license
+
+If you extended a Copy and Sync license that you purchased from NetApp, the new expiration date won't update automatically in Copy and Sync. You need to add the license again to refresh the expiration date. Licenses should be managed through Copy and Sync or the applicable website and *not* through the NetApp Console subscriptions.
+
+.Steps
+
+. From the NetApp Console navigation menu, select *Mobility > Copy and Sync*.
+
+. Select *Licensing*.
+
+. Select *Add License* and add the required information:
+
+.. Enter the serial number.
+
+.. Select the NetApp Support Site account that is associated with the license that you're adding.
+
+.. Select *Add*.
+
+.Result
+
+Copy and Sync updates the existing license with the new expiration date.

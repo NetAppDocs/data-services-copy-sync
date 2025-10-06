@@ -1,0 +1,320 @@
+---
+sidebar: sidebar
+permalink: faq.html
+keywords: community, forums, help, support, videos, faq, getting help, permissions, access control lists, acls, preserve, preserving, troubleshooting, support, encryption, smb
+summary: You can get help with NetApp Copy and Sync and find more information through various resources, including forums, chat services, and videos.
+---
+
+= NetApp Copy and Sync technical FAQ
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+This FAQ can help if you’re just looking for a quick answer to a question.
+
+== Getting started
+
+The following questions relate to getting started with NetApp Copy and Sync.
+
+=== How does NetApp Copy and Sync work?
+
+Copy and Sync uses the NetApp data broker software to sync data from a source to a target (this is called a _sync relationship_).
+
+A data broker group controls the sync relationships between your sources and targets. After you set up a sync relationship, Copy and Sync analyzes your source system and breaks it up into multiple replication streams to push to your selected target data.
+
+After the initial copy, Copy and Sync syncs any changed data based on the schedule that you set.
+
+=== How does the 14-day free trial work?
+
+The 14-day free trial starts when you sign up for Copy and Sync. You're not subject to NetApp charges for Copy and Sync relationships you create for 14 days. However, all resource charges for any data brokers that you deploy still applies.
+
+=== How much does Copy and Sync cost?
+
+There are two types of costs associated with using Copy and Sync: service charges and resource charges.
+
+*Service charges*
+
+For pay-as-you-go pricing, Copy and Sync service charges are hourly, based on the number of sync relationships that you create.
+
+* https://aws.amazon.com/marketplace/pp/B01LZV5DUJ[View pay-as-you-go pricing in AWS^]
+* https://aws.amazon.com/marketplace/pp/B06XX5V3M2[View annual pricing in AWS^]
+* https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-sync-service?tab=PlansAndPrice[View pricing in Azure^]
+
+Copy and Sync licenses are also available through your NetApp representative. Each license enables 20 sync relationships for 12 months.
+
+link:concept-licensing.html[Learn more about licenses].
+
+NOTE: Copy and Sync relationships are free for Azure NetApp Files.
+
+*Resource charges*
+
+The resource charges are related to the compute and storage costs for running the data broker in the cloud.
+
+=== How is Copy and Sync billed and how do I manage my subscription?
+
+There are two ways to pay for sync relationships after your 14-day free trial ends. The first option is to subscribe from AWS or Azure, which enables you to pay-as-you-go or to pay annually. The second option is to purchase licenses directly from NetApp. In each case, your subscription will be managed through your provider marketplace and *not* via the Copy and Sync user interface.
+
+=== Can I use Copy and Sync outside the cloud?
+
+Yes, you can use Copy and Sync in a non-cloud architecture. The source and target can reside on-premises and so can the data broker software.
+
+Note the following key points about using Copy and Sync outside of the cloud:
+
+* A data broker group needs an internet connection to communicate with Copy and Sync.
+* If you don't purchase a license directly from NetApp, you will need an AWS or Azure account for PAYGO Copy and Sync billing.
+
+=== How do I access Copy and Sync?
+
+Copy and Sync is available from the the NetApp Console. From the Console left navigation, select *Mobility* > *Copy and Sync*. 
+
+=== What's a data broker group?
+
+Each data broker belongs to a data broker group. Grouping data brokers together helps improve the performance of sync relationships.
+
+== Supported sources and targets
+
+The following questions related to the source and targets that are supported in a sync relationship.
+
+=== Which sources and targets does Copy and Sync support?
+
+Copy and Sync supports many different types of sync relationships. link:reference-supported-relationships.html[View the entire list].
+
+=== What versions of NFS and SMB does Copy and Sync support?
+
+Copy and Sync supports NFS version 3 and later, and SMB version 1 and later.
+
+link:reference-requirements.html[Learn more about sync requirements].
+
+=== When Amazon S3 is the target, can the data be tiered to a specific S3 storage class?
+
+Yes, you can choose a specific S3 storage class when AWS S3 is the target:
+
+* Standard (this is the default class)
+* Intelligent-Tiering
+* Standard-Infrequent Access
+* One Zone-Infrequent Access
+*	Glacier Deep Archive
+*	Glacier Flexible Retrieval
+* Glacier Instant Retrieval 
+
+=== What about storage tiers for Azure Blob storage?
+
+You can choose a specific Azure Blob storage tier when a Blob container is the target:
+
+* Hot storage
+* Cool storage
+
+=== Do you support Google Cloud storage tiers?
+
+Yes, you can choose a specific storage class when a Google Cloud Storage bucket is the target:
+
+* Standard
+* Nearline
+* Coldline
+* Archive
+
+== Networking
+
+The following questions relate to networking requirements for Copy and Sync.
+
+=== What are the networking requirements for Copy and Sync?
+
+The Copy and Sync environment requires that a data broker group is connected with the source and the target through the selected protocol or object storage API (Amazon S3, Azure Blob, IBM Cloud Object Storage).
+
+In addition, a data broker group needs an outbound internet connection over port 443 so it can communicate with Copy and Sync and contact a few other services and repositories.
+
+For more details, link:reference-networking.html[review networking requirements].
+
+=== Can I use a proxy server with the data broker?
+
+Yes.
+
+Copy and Sync supports proxy servers with or without basic authentication. If you specify a proxy server when you deploy a data broker, all HTTP and HTTPS traffic from the data broker is routed through the proxy. Note that non-HTTP traffic such as NFS or SMB can’t be routed through a proxy server.
+
+The only proxy server limitation is when using data-in-flight encryption with an NFS or Azure NetApp Files sync relationship. The encrypted data is sent over HTTPS and isn’t routable through a proxy server.
+
+== Data synchronization
+
+The following questions relate to how data synchronization works.
+
+=== How often does synchronization occur?
+
+The default schedule is set for daily synchronization. After the initial synchronization, you can:
+
+* Modify the sync schedule to your desired number of days, hours, or minutes
+* Disable the sync schedule
+* Delete the sync schedule (no data will be lost; only the sync relationship will be removed)
+
+=== What is the minimum sync schedule?
+
+You can schedule a relationship to sync data as often as every 1 minute.
+
+=== Does the data broker group retry when a file fails to sync? Or does it timeout?
+
+A data broker group doesn't timeout when a single file fails to transfer. Instead, the data broker group retries 3 times before skipping the file. The retry value is configurable in the settings for a sync relationship.
+
+link:task-managing-relationships.html#change-the-settings-for-a-sync-relationship[Learn how to change the settings for a sync relationship].
+
+=== What if I have a very large dataset?
+
+If a single directory contains 600,000 files or more, link:task-get-help.html[contact us] so that we can help you configure the data broker group to handle the payload. We might need to add additional memory to the data broker group.
+
+Note that there's no limit to the total number of files in the mount point. The extra memory is required for large directories with 600,000 files or more, regardless of their level in the hierarchy (top directory or subdirectory).
+
+== Security
+
+The following questions related to security.
+
+=== Is Copy and Sync secure?
+
+Yes. All Copy and Sync networking connectivity is done using https://aws.amazon.com/sqs/[Amazon Simple Queue Service (SQS)^].
+
+All communication between the data broker group and Amazon S3, Azure Blob, Google Cloud Storage, and IBM Cloud Object Storage is done through the HTTPS protocol.
+
+If you're using Copy and Sync with on-premises (source or destination) systems, here's a few recommended connectivity options:
+
+* An AWS Direct Connect, Azure ExpressRoute, or Google Cloud Interconnect connection, which is non-internet routed (and can only communicate with the cloud networks that you specify)
+
+* A VPN connection between your on-premises gateway device and your cloud networks
+
+* For extra secure data transfer with S3 buckets, Azure Blob storage, or Google Cloud Storage, an Amazon Private S3 Endpoint, Azure Virtual Network service endpoints, or Private Google Access may be established.
+
+Any of these methods establishes a secure connection between your on-premises NAS servers and a Copy and Sync data broker group.
+
+=== Is data encrypted by Copy and Sync?
+
+* Copy and Sync supports data-in-flight encryption between source and target NFS servers. link:task-nfs-encryption.html[Learn more].
+
+* For SMB, Copy and Sync supports SMB 3.0 and 3.11 data that you've encrypted on the server side. Copy and Sync copies the encrypted data from the source to the target where the data remains encrypted.
++
+Copy and Sync cannot encrypt SMB data itself.
+
+* When an Amazon S3 bucket is the target in a sync relationship, you can choose whether to enable data encryption using AWS KMS encryption or AES-256 encryption.
+
+* When a Google Storage bucket is the target in a sync relationship, you can choose whether to use the default, Google-managed encryption key or your own KMS key.
+
+== Permissions
+
+The following questions relate to data permissions.
+
+=== Are SMB data permissions synced to the target location?
+
+You can set up Copy and Sync to preserve access control lists (ACLs) between a source SMB share and a target SMB share, and from a source SMB share to object storage (except for ONTAP S3).
+
+NOTE: Copy and Sync doesn't support copying ACLs from object storage to SMB shares.
+
+link:task-copying-acls.html[Learn how to copy ACLs between SMB shares].
+
+=== Are NFS data permissions synced to the target location?
+
+Copy and Sync automatically copies NFS permissions between NFS servers as follows:
+
+* NFS version 3: Copy and Sync copies the permissions and the user group owner.
+* NFS version 4: Copy and Sync copies the ACLs.
+
+== Object storage metadata
+
+=== What kinds of sync relationships preserve object storage metadata?
+
+Copy and Sync copies object storage metadata from the source to the target for the following types of sync relationships:
+
+* Amazon S3 -> Amazon S3 ^1^
+* Amazon S3 -> StorageGRID
+* StorageGRID -> Amazon S3
+* StorageGRID -> StorageGRID
+* StorageGRID -> Google Cloud Storage
+* Google Cloud Storage -> StorageGRID ^1^
+* Google Cloud Storage -> IBM Cloud Object Storage ^1^
+* Google Cloud Storage -> Amazon S3 ^1^
+* Amazon S3 -> Google Cloud Storage
+* IBM Cloud Object Storage -> Google Cloud Storage
+* StorageGRID -> IBM Cloud Object Storage
+* IBM Cloud Object Storage -> StorageGRID
+* IBM Cloud Object Storage -> IBM Cloud Object Storage
+
+^1^ For these sync relationships, you need to link:task-creating-relationships.html[enable the Copy for Objects setting when you create the sync relationship].
+
+=== What kinds of metadata are replicated during syncs where NFS or SMB are the source?
+
+Metadata such as user ID, modification time, access time, and GID are replicated by default. Users may opt into replicating ACL from CIFs by marking it as required when creating a sync relationship.
+
+== Performance
+
+The following questions relate to Copy and Sync performance.
+
+=== What does the progress indicator for a sync relationship represent?
+
+The sync relationship shows the throughput of the data broker group's network adapter. If you accelerated sync performance by using multiple data brokers, then the throughput is the sum of all traffic. This throughput refreshes every 20 seconds.
+
+=== I'm experiencing performance issues. Can we limit the number of concurrent transfers?
+
+If you have very large files (multiple TiBs each), it can take a long time to complete the transfer process and performance might be impacted.
+
+Limiting the number of concurrent transfers can help. link:task-get-help.html[Contact us for help].
+
+=== Why am I experiencing low performance with Azure NetApp Files?
+
+When you sync data to or from Azure NetApp Files, you might experience failures and performance issues if the disk service level is Standard.
+
+Change the service level to Premium or Ultra to enhance the sync performance.
+
+https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-service-levels#throughput-limits[Learn more about Azure NetApp Files service levels and throughput^].
+
+
+=== How many data brokers are required in a group?
+
+When you create a new relationship, you start with a single data broker in a group (unless you selected an existing data broker that belongs to an accelerated sync relationship). In many cases, a single data broker can meet the performance requirements for a sync relationship. If it doesn't, you can accelerate sync performance by adding additional data brokers to the group. But you should first check other factors that can impact sync performance.
+
+Multiple factors can impact data transfer performance. The overall sync performance might be impacted due to network bandwidth, latency, and network topology, as well as the data broker VM specs and storage system performance. For example, a single data broker in a group can reach 100 MB/s, while disk throughput on the target might only allow 64 MB/s. As a result, the data broker group keeps trying to copy the data, but the target can't meet the performance of the data broker group.
+
+So be sure to check the performance of your networking and the disk throughput on the target.
+
+Then you can consider accelerating sync performance by adding an additional data brokers to a group to share the load of that relationship. link:task-managing-relationships.html#accelerate-sync-performance[Learn how to accelerate sync performance].
+
+== Deleting things
+
+The following questions relate to deleting sync relationships and data from sources and targets.
+
+=== What happens if I delete my Copy and Sync relationship?
+
+Deleting a relationship stops all future data syncs and terminates payment. Any data that was synced to the target remains as-is.
+
+=== What happens if I delete something from my source server? Is it removed from the target too?
+
+By default, if you have an active sync relationship, the item deleted on the source server is not deleted from the target during the next synchronization. But there is an option in the sync settings for each relationship, where you can define that Copy and Sync will delete files in the target location if they were deleted from the source.
+
+link:task-managing-relationships.html#change-the-settings-for-a-sync-relationship[Learn how to change the settings for a sync relationship].
+
+=== What happens if I delete something from my target? Is it removed from my source too?
+
+If an item is deleted from the target, it will not be removed from the source. The relationship is one-way—from source to target. On the next sync cycle, Copy and Sync compares the source to the target, identifies that the item is missing, and Copy and Sync copies it again from the source to the target.
+
+== Troubleshooting
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Cloud_Sync/Cloud_Sync_FAQ:_Support_and_Troubleshooting[NetApp Knowledgebase: Copy and Sync FAQ: Support and Troubleshooting^]
+
+== Data broker deep dive
+
+The following question relates to the data broker.
+
+=== Can you explain the architecture of the data broker?
+
+Sure. Here are the most important points:
+
+* The data broker is a node.js application running on a Linux host.
+
+* Copy and Sync deploys the data broker as follows:
+
+** AWS: From an AWS CloudFormation template
+** Azure: From Azure Resource Manager
+** Google: From Google Cloud Deployment Manager
+** If you use your own Linux host, you need to manually install the software
+
+* The data broker software automatically upgrades itself to the latest version.
+
+* The data broker uses AWS SQS as a reliable and secure communication channel and for control and monitoring. SQS also provides a persistency layer.
+
+* You can add additional data brokers to a group to increase transfer speed and add high availability. There is service resiliency if one data broker fails.

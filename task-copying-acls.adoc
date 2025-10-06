@@ -1,0 +1,86 @@
+---
+sidebar: sidebar
+permalink: task-copying-acls.html
+keywords: permissions, access control list, acls, ntfs, cifs, smb, shares, robocopy, copy, transfer, activate, operating system, os, ram, cpu, networking, copy acls to the target
+summary: NetApp Copy and Sync can copy access control lists (ACLs) between SMB shares and between an SMB share and object storage (except for ONTAP S3). If needed, you also have the option to manually preserve ACLs between SMB shares by using robocopy.
+---
+
+= Copy ACLs from SMB shares in NetApp Copy and Sync
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+NetApp Copy and Sync can copy access control lists (ACLs) between SMB shares and between an SMB share and object storage (except for ONTAP S3). If needed, you also have the option to manually preserve ACLs between SMB shares by using robocopy.
+
+.Choices
+
+* <<Set up Copy and Sync to copy ACLs,Set up Copy and Sync to automatically copy ACLs>>
+* <<Manually copy ACLs between SMB shares,Manually copy the ACLs between SMB shares>>
+
+== Set up Copy and Sync to copy ACLs
+
+Copy ACLs between SMB shares and between SMB shares and object storage by enabling a setting when you create a relationship or after you create a relationship.
+
+.Before you begin
+
+This feature works with _any_ type of data broker: the AWS, Azure, Google Cloud Platform, or on-prem data broker. The on-prem data broker can run link:task-installing-linux.html[any supported operating system].
+
+.Steps for a new relationship
+
+
+. link:task-login-copyandsync.html[Log in to Copy and Sync].
+. From Copy and Sync, select *Create New Sync*.
+
+. Drag and drop an SMB server or object storage as the source and an SMB server or object storage as the target, and select *Continue*.
+
+. On the *SMB Server* page:
+.. Enter a new SMB server or select an existing server and select *Continue*.
+.. Enter credentials for the SMB server.
+.. Choose to either *Copy only files*, *Copy only ACL*, or *Copy files and ACL* and select *Continue*.
++
+image:screenshot_acl_support.png[A screenshot that shows the option to enable Copy Access Control Lists to the target.]
+
+. Follow the remaining prompts to create the sync relationship.
++
+When you copy ACLs from SMB to object storage, you can choose to copy the ACLs to the object's tags or on the object's metadata, depending on the target. For Azure and Google Cloud Storage, only the metadata option is available.
++
+The following screenshot shows an example of the step where you can make this choice.
++
+image:screenshot-sync-tags-metadata.png["A screenshot of the sixth step in the sync relationship wizard when copying to object storage. You can choose to save the ACLs to the object's tags or metadata."]
+
+.Steps for an existing relationship
+
+. Hover over the sync relationship and select the action menu.
+
+. Select *Settings*.
+
+. Choose to either *Copy only files*, *Copy only ACL*, or *Copy files and ACL* and select *Continue*.
+
+. Select *Save Settings*.
+
+.Result
+
+When syncing data, Copy and Sync preserves the ACLs between the source and target.
+
+== Manually copy ACLs between SMB shares
+
+You can manually preserve ACLs between SMB shares by using the Windows robocopy command.
+
+.Steps
+
+. Identify a Windows host that has full access to both SMB shares.
+
+. If either of the endpoints require authentication, use the *net use* command to connect to the endpoints from the Windows host.
++
+You must perform this step before you use robocopy.
+
+. From Copy and Sync, create a new relationship between the source and target SMB shares or sync an existing relationship.
+
+. After the data sync is complete, run the following command from the Windows host to sync the ACLs and ownership:
++
+ robocopy /E /COPY:SOU /secfix [source] [target] /w:0 /r:0 /XD ~snapshots /UNILOG:”[logfilepath]
++
+Both _source_ and _target_ should be specified using the UNC format. For example: \\<server>\<share>\<path>
