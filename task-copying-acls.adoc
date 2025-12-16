@@ -61,6 +61,12 @@ image:screenshot-sync-tags-metadata.png["A screenshot of the sixth step in the s
 
 . Select *Save Settings*.
 
+[NOTE]
+====
+Copy and Sync preserves SMB ACLs (permissions), but does not copy file or folder ownership.  
+Ownership is not included in the SMB ACL transfer operation.
+====
+
 .Result
 
 When syncing data, Copy and Sync preserves the ACLs between the source and target.
@@ -68,6 +74,12 @@ When syncing data, Copy and Sync preserves the ACLs between the source and targe
 == Manually copy ACLs between SMB shares
 
 You can manually preserve ACLs between SMB shares by using the Windows robocopy command.
+
+[NOTE]
+====
+If you need to preserve ownership (Owner and Group) in addition to ACLs, you can use the `robocopy` command.  
+Using the `/copyall` flag copies ACLs, ownership, and audit information.
+====
 
 .Steps
 

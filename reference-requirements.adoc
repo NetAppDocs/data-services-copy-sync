@@ -41,6 +41,8 @@ SMB:: The SMB credentials that you enter when setting up a sync relationship mus
 
 NOTE: The data broker ignores the following directories by default: .snapshot, ~snapshot, .copy-offload
 
+NOTE: When copying SMB data into Cloud Volumes ONTAP using Copy and Sync, file and folder ownership from the source system is not preserved. This behavior occurs because Copy and Sync uses a Linux SMB client, which assigns ownership to the user or service account used to authenticate the transfer. While access control lists may be retained, ownership and audit information can differ from the source system. This is expected behavior.
+
 == [[s3]]Amazon S3 bucket requirements
 
 Make sure that your Amazon S3 bucket meets the following requirements.
