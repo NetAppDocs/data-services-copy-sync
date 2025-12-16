@@ -21,12 +21,19 @@ Licenses should be managed through NetApp Copy and Sync or the applicable websit
 
 Subscribing to Copy and Sync from AWS or Azure enables you to pay at an hourly rate, or to pay annually. link:task-licensing.html[You can subscribe through either AWS or Azure], depending on where you want to be billed.
 
+[NOTE]
+====
+Copy and Sync supports Marketplace subscriptions from **AWS** and **Azure** only.
+Google Cloud Marketplace subscriptions are not supported for Copy and Sync.
+====
+
 === Hourly subscription
 
 With an hourly pay-as-you-go subscription, you're charged hourly based on the number of sync relationships that you create.
 
 * https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-sync-service?tab=PlansAndPrice[View pricing in Azure^]
 * https://aws.amazon.com/marketplace/pp/B01LZV5DUJ[View pay-as-you-go pricing in AWS^]
+
 
 === Annual subscription
 
