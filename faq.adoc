@@ -208,6 +208,8 @@ NOTE: Copy and Sync doesn't support copying ACLs from object storage to SMB shar
 
 link:task-copying-acls.html[Learn how to copy ACLs between SMB shares].
 
+NOTE: Copy Sync copies SMB ACLs (permissions), but it does not copy file or folder ownership. The ownership attribute is not included in the SMB ACL copy operation. If you need to preserve ownership when copying data between SMB shares, use `robocopy` to manually copy the security information. For example, the `/copyall` flag copies ACLs, owner, and audit data.
+
 === Are NFS data permissions synced to the target location?
 
 Copy and Sync automatically copies NFS permissions between NFS servers as follows:
