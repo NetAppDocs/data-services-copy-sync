@@ -17,7 +17,7 @@ When you create a new data broker group for NetApp Copy and Sync, choose the On-
 
 == Linux host requirements
 
-* *Node.js compatibility*: v21.2.0
+* *Node.js compatibility*: v25.x
 * *Operating system*:
 ** CentOS 8.0 and 8.5
 +
@@ -29,7 +29,7 @@ CentOS Stream is not supported.
 +
 The command `yum update` must be run on the host before you install the data broker.
 +
-A Red Hat Enterprise Linux system must be registered with Red Hat Subscription Management. If it is not registered, the system cannot access repositories to update required 3rd party software during installation.
+A Red Hat Enterprise Linux system must be registered with Red Hat Subscription Management. If it is not registered, the system cannot access repositories to update required third-party software during installation.
 * *RAM*: 16 GB
 * *CPU*: 4 cores
 * *Free disk space*: 10 GB
