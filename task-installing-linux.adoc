@@ -100,23 +100,23 @@ You can install a data broker on a Linux host when you create a sync relationshi
 
 . Select *Create New Sync*.
 
-. On the *Define Sync Relationship* page, choose a source and target and select *Continue*.
+. On the *Define Sync Relationship* page, choose a source and target then select *Continue*.
 +
 Complete the steps until you reach the *Data Broker Group* page.
 
-. On the *Data Broker Group* page, select *Create Data Broker* and then select *On-Prem Data Broker*.
+. On the *Data Broker Group* page, select *Create Data Broker* then select *On-Prem Data Broker*.
 +
 image:screenshot-on-prem.png["A screenshot of the Data Broker page that enables you to choose between an AWS, Azure, Google Cloud, and On-Prem data broker."]
 +
 NOTE: Even though the option is labeled *_On-Prem_ Data Broker*, it applies to a Linux host on your premises or in the cloud.
 
-. Enter a name for the data broker and select *Continue*.
+. Enter a name for the data broker then select *Continue*.
 +
-The instructions page loads shortly. You'll need to follow these instructions--they include a unique link to download the installer.
+After the instructions page loads, follow the instructions which include a unique link to download the installer. 
 
 . On the instructions page:
 +
-.. Select whether to enable access to *AWS*, *Google Cloud*, or both.
+.. Choose to enable access to *AWS*, *Google Cloud*, or both.
 
 .. Select an installation option: *No proxy*, *Use proxy server*, or *Use proxy server with authentication*.
 +
