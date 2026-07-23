@@ -32,13 +32,13 @@ If you want to create sync relationships for any of the following, then you firs
 . link:task-login-copyandsync.html[Log in to Copy and Sync].
 . Create or discover the system.
 +
-* https://docs.netapp.com/us-en/bluexp-fsx-ontap/start/task-getting-started-fsx.html[Create an Amazon FSx for ONTAP system^]
-* https://docs.netapp.com/us-en/bluexp-azure-netapp-files/task-quick-start.html[Setting up and discovering Azure NetApp Files^]
-* https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-deploying-otc-aws.html[Launching Cloud Volumes ONTAP in AWS^]
-* https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-deploying-otc-azure.html[Launching Cloud Volumes ONTAP in Azure^]
-* https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-deploying-gcp.html[Launching Cloud Volumes ONTAP in Google Cloud^]
-* https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-adding-systems.html[Adding existing Cloud Volumes ONTAP systems^]
-* https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html[Discovering ONTAP clusters^]
+* https://docs.netapp.com/us-en/storage-management-fsx-ontap/start/task-getting-started-fsx.html[Create an Amazon FSx for ONTAP system^]
+* https://docs.netapp.com/us-en/storage-management-azure-netapp-files/task-quick-start.html[Setting up and discovering Azure NetApp Files^]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-deploying-otc-aws.html[Launching Cloud Volumes ONTAP in AWS^]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-deploying-otc-azure.html[Launching Cloud Volumes ONTAP in Azure^]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-deploying-gcp.html[Launching Cloud Volumes ONTAP in Google Cloud^]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-adding-systems.html[Adding existing Cloud Volumes ONTAP systems^]
+* https://docs.netapp.com/us-en/storage-management-ontap-onprem/task-discovering-ontap.html[Discovering ONTAP clusters^]
 
 . Select *Systems page*.
 
@@ -212,7 +212,7 @@ TIP: This same feature is available when syncing data to StorageGRID and IBM Clo
 
 *Result*
 
-Copy and Sync starts syncing data between the source and target. Sync statistics on how long the sync took, whether it halted, and how many files were copied, scanned, or deleted are available. You can then manage your https://docs.netapp.com/us-en/bluexp-copy-sync/task-managing-relationships.html[sync relationships], https://docs.netapp.com/us-en/bluexp-copy-sync/task-managing-data-brokers.html[manage your data brokers], or https://docs.netapp.com/us-en/bluexp-copy-sync/task-managing-reports.html#creating-reports[create reports to optimize your performance and configuration].
+Copy and Sync starts syncing data between the source and target. Sync statistics on how long the sync took, whether it halted, and how many files were copied, scanned, or deleted are available. You can then manage your https://docs.netapp.com/us-en/data-services-copy-sync/task-managing-relationships.html[sync relationships], https://docs.netapp.com/us-en/data-services-copy-sync/task-managing-data-brokers.html[manage your data brokers], or https://docs.netapp.com/us-en/data-services-copy-sync/task-managing-reports.html#creating-reports[create reports to optimize your performance and configuration].
 
 == Create sync relationships from NetApp Data Classification
 
@@ -222,4 +222,4 @@ After you initiate a data sync from NetApp Data Classification, all of the sourc
 
 image:screenshot-sync-data-sense.png[A screenshot that shows the NetApp Data Classification Integration page that appears after starting a new sync directly from NetApp Data Classification.]
 
-https://docs.netapp.com/us-en/bluexp-classification/task-managing-highlights.html#copying-and-synchronizing-source-files-to-a-target-system[Learn how to start a sync relationship from NetApp Data Classification^].
+https://docs.netapp.com/us-en/data-services-data-classification/concept-classification.html[Learn how to start a sync relationship from NetApp Data Classification^].

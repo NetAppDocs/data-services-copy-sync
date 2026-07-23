@@ -102,7 +102,7 @@ Ensure that the Azure user account that you use to deploy the data broker has th
 
 Note:
 
-. The following permissions are only required if you plan to enable the https://docs.netapp.com/us-en/bluexp-copy-sync/task-creating-relationships.html#settings[Continuous Sync setting] on a sync relationship from Azure to another cloud storage location:
+. The following permissions are only required if you plan to enable the link:task-creating-relationships.html#settings[Continuous Sync setting] on a sync relationship from Azure to another cloud storage location:
 * 'Microsoft.Storage/storageAccounts/read',
 * 'Microsoft.EventGrid/systemTopics/eventSubscriptions/write',
 * 'Microsoft.EventGrid/systemTopics/eventSubscriptions/read',
