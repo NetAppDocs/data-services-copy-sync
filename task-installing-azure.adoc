@@ -40,6 +40,7 @@ If you need to limit outbound connectivity, see link:reference-networking.html[t
 Ensure that the Azure user account that you use to deploy the data broker has the following permissions:
 
 [source,json]
+====
 {
     "Name": "Azure Data Broker",
     "Actions": [
@@ -99,10 +100,10 @@ Ensure that the Azure user account that you use to deploy the data broker has th
     "Description": "Azure Data Broker",
     "IsCustom": "true"
 }
+====
 
-Note:
+The following permissions are only required if you plan to enable the link:task-creating-relationships.html[Continuous Sync setting] on a sync relationship from Azure to another cloud storage location:
 
-. The following permissions are only required if you plan to enable the https://docs.netapp.com/us-en/bluexp-copy-sync/task-creating-relationships.html#settings[Continuous Sync setting] on a sync relationship from Azure to another cloud storage location:
 * 'Microsoft.Storage/storageAccounts/read',
 * 'Microsoft.EventGrid/systemTopics/eventSubscriptions/write',
 * 'Microsoft.EventGrid/systemTopics/eventSubscriptions/read',
@@ -115,18 +116,18 @@ Note:
 * 'Microsoft.EventGrid/eventSubscriptions/write',
 * 'Microsoft.Storage/storageAccounts/write'
 
-+
-Additionally, the assignable scope must be set to subscription scope and *not* resource group scope if you plan to implement Continuous Sync in Azure.
+The assignable scope must be set to subscription scope and *not* resource group scope if you plan to implement Continuous Sync in Azure.
 
-. The following permissions are only required if you plan to choose your own security for data broker creation:
-* "Microsoft.Network/networkSecurityGroups/securityRules/read"
-* "Microsoft.Network/networkSecurityGroups/read"
+The following permissions are only required if you plan to choose your own security for data broker creation:
+
+* 'Microsoft.Network/networkSecurityGroups/securityRules/read'
+* 'Microsoft.Network/networkSecurityGroups/read'
 
 == Authentication method
 
-When you deploy the data broker, you'll need to choose an authentication method for the virtual machine: a password or an SSH public-private key pair.
+When you deploy the data broker, you need to choose an authentication method for the virtual machine: a password or an SSH public-private key pair.
 
-For help with creating a key pair, refer to https://docs.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys[Azure Documentation: Create and use an SSH public-private key pair for Linux VMs in Azure^].
+For help with creating a key pair, refer to link:https://docs.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys[Azure Documentation: Create and use an SSH public-private key pair for Linux VMs in Azure^].
 
 == Create the data broker
 

@@ -91,8 +91,6 @@ Copy and Sync updates the credentials on the data broker. It can take up 10 minu
 
 A *Notifications* setting for each sync relationship enables you to choose whether to receive Copy and Sync notifications in the NetApp Console's Notification Center. You can enable notifications for successful data syncs, failed data syncs, and canceled data syncs.
 
-image:https://raw.githubusercontent.com/NetAppDocs/bluexp-copy-sync/main/media/screenshot-notification-center.png[A screenshot that shows the Notification Center in the NetApp Console.]
-
 In addition, you can also receive notifications by email.
 
 .Steps

@@ -33,8 +33,8 @@ If you want to create sync relationships for any of the following, then you firs
 A Console agent is required for Cloud Volumes ONTAP, on-prem ONTAP clusters, and Amazon FSx for ONTAP.
 
 [role="quick-margin-list"]
-* https://docs.netapp.com/us-en/bluexp-setup-admin/concept-overview.html[Learn how to get started with the NetApp Console^]
-* https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html[Learn more about Console agents^]
+* https://docs.netapp.com/us-en/console-setup-admin/concept-overview.html[Learn how to get started with the NetApp Console^]
+* https://docs.netapp.com/us-en/console-setup-admin/concept-connectors.html[Learn more about Console agents^]
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png[Two] Prepare your source and target
 
