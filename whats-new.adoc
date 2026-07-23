@@ -119,7 +119,7 @@ https://docs.netapp.com/us-en/data-services-copy-sync/reference-requirements.htm
 
 Users are now able to delete more than one sync relationship at a time in the UI.
 
-https://docs.netapp.com/us-en/data-services-copy-sync/task-managing-relationships.html#deleting-relationships[Learn more about deleting sync relelationships.]
+https://docs.netapp.com/us-en/data-services-copy-sync/task-managing-relationships.html#deleting-relationships[Learn more about deleting sync relationships.]
 
 === Copy only ACL
 
