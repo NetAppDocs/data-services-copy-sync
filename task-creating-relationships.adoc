@@ -212,7 +212,7 @@ TIP: This same feature is available when syncing data to StorageGRID and IBM Clo
 
 *Result*
 
-Copy and Sync starts syncing data between the source and target. Sync statistics on how long the sync took, whether it halted, and how many files were copied, scanned, or deleted are available. You can then manage your https://docs.netapp.com/us-en/data-services-copy-sync/task-managing-relationships.html[sync relationships], https://docs.netapp.com/us-en/data-services-copy-sync/task-managing-data-brokers.html[manage your data brokers], or https://docs.netapp.com/us-en/data-services-copy-sync/task-managing-reports.html#creating-reports[create reports to optimize your performance and configuration].
+Copy and Sync starts syncing data between the source and target. Sync statistics on how long the sync took, whether it halted, and how many files were copied, scanned, or deleted are available. You can then manage your link:task-managing-relationships.html[sync relationships], link:task-managing-data-brokers.html[manage your data brokers], or link:task-managing-reports.html#creating-reports[create reports to optimize your performance and configuration].
 
 == Create sync relationships from NetApp Data Classification
 
