@@ -2,7 +2,7 @@
 
 ## Repository overview
 
-**Product:** NetApp Ransomware Copy and Sync
+**Product:** NetApp Copy and Sync
 
 NetApp Copy and Sync is a data movement service that securely copies and synchronizes data between supported source and target systems across on-premises and cloud environments. Customers use it to support migration, ongoing replication, and operational data distribution between file and object storage endpoints. The documentation in this repository focuses on setup, relationship configuration, monitoring, and troubleshooting workflows that help users move data reliably at scale.
 
