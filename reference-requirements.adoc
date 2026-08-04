@@ -166,7 +166,7 @@ If the source for a sync relationship is a SnapMirror destination (which is read
 
 You can encrypt a target Google Cloud bucket with a customer-managed KMS key or the default, Google-managed key. If the bucket already has a KMS encryption added to it, it will override the default Google-managed encryption.
 
-To add a customer-managed KMS key, you will need to use a data broker with the https://docs.netapp.com/us-en/bluexp-copy-sync/task-installing-gcp.html#permissions-required-for-the-service-account[correct permissions], and the key must be in the same region as the bucket.
+To add a customer-managed KMS key, you will need to use a data broker with the link:task-installing-gcp.html#permissions-required-for-the-service-account[correct permissions], and the key must be in the same region as the bucket.
 
 == Google Drive
 

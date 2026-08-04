@@ -15,7 +15,7 @@ summary: Create and view reports to get information that you can use with the he
 [.lead]
 Create and view reports in NetApp Copy and Sync to get information that you can use with the help of NetApp personnel to tune a data broker's configuration and improve performance.
 
-Each report provides in-depth details about a path in a sync relationship. It will include how many directories, files, and symbolic links there are, the distribution of file size, how deep and wide the directories are, modify time, and access time. This differs from sync statics, which are available from the dashboard after https://docs.netapp.com/us-en/bluexp-copy-sync/task-creating-relationships.html[successfully creating and completing a sync].
+Each report provides in-depth details about a path in a sync relationship. It will include how many directories, files, and symbolic links there are, the distribution of file size, how deep and wide the directories are, modify time, and access time. This differs from sync statistics, which are available from the dashboard after link:task-creating-relationships.html[successfully creating and completing a sync].
 
 == Create reports
 

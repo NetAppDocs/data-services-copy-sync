@@ -47,7 +47,7 @@ NetApp Copy and Sync was updated to fix a few bugs. The data broker was also upd
 
 The data broker is now supported on hosts running Red Hat Enterprise Linux 8.9.
 
-https://docs.netapp.com/us-en/bluexp-copy-sync/task-installing-linux.html#linux-host-requirements[View Linux host requirements].
+https://docs.netapp.com/us-en/data-services-copy-sync/task-installing-linux.html#linux-host-requirements[View Linux host requirements].
 
 == 11 February 2024
 
@@ -55,7 +55,7 @@ https://docs.netapp.com/us-en/bluexp-copy-sync/task-installing-linux.html#linux-
 
 Users now have the option to filter directories using regex.
 
-https://docs.netapp.com/us-en/bluexp-copy-sync/task-creating-relationships.html#create-other-types-of-sync-relationships[Learn more about the *Exclude Directories* feature.]
+https://docs.netapp.com/us-en/data-services-copy-sync/task-creating-relationships.html#create-other-types-of-sync-relationships[Learn more about the *Exclude Directories* feature.]
 
 == 26 November 2023
 
@@ -63,13 +63,13 @@ https://docs.netapp.com/us-en/bluexp-copy-sync/task-creating-relationships.html#
 
 The cold storage Azure Blob tier is now available when creating a sync relationship.
 
-https://docs.netapp.com/us-en/bluexp-copy-sync/task-creating-relationships.html[Learn more about creating a sync relationship.]
+https://docs.netapp.com/us-en/data-services-copy-sync/task-creating-relationships.html[Learn more about creating a sync relationship.]
 
 === Support for Tel Aviv region in AWS data brokers
 
 Tel Aviv is now a supported region when creating a data broker in AWS.
 
-https://docs.netapp.com/us-en/bluexp-copy-sync/task-installing-aws.html#creating-the-data-broker[Learn more about creating a data broker in AWS].
+https://docs.netapp.com/us-en/data-services-copy-sync/task-installing-aws.html#creating-the-data-broker[Learn more about creating a data broker in AWS].
 
 === Update to node version for data brokers
 
@@ -81,13 +81,13 @@ All new data brokers will now use node version 21.2.0. Data brokers that are not
 
 Users now have the option to exclude files using regex.
 
-https://docs.netapp.com/us-en/bluexp-copy-sync/task-creating-relationships.html#create-other-types-of-sync-relationships[Learn more about the *Exclude File Extensions* feature.]
+https://docs.netapp.com/us-en/data-services-copy-sync/task-creating-relationships.html#create-other-types-of-sync-relationships[Learn more about the *Exclude File Extensions* feature.]
 
 === Add S3 keys when creating Azure data broker
 
 Users may now add AWS S3 access keys and secret keys when creating an Azure data broker. 
 
-https://docs.netapp.com/us-en/bluexp-copy-sync/task-installing-azure.html#creating-the-data-broker[Learn more about creating a data broker in Azure.]
+https://docs.netapp.com/us-en/data-services-copy-sync/task-installing-azure.html#creating-the-data-broker[Learn more about creating a data broker in Azure.]
 
 == 06 August 2023
 
@@ -100,7 +100,7 @@ The service account used when creating the data broker must have these permissio
 * "Microsoft.Network/networkSecurityGroups/securityRules/read"
 * "Microsoft.Network/networkSecurityGroups/read"
 
-https://docs.netapp.com/us-en/bluexp-copy-sync/task-installing-azure.html[Learn more about creating a data broker in Azure.]
+https://docs.netapp.com/us-en/data-services-copy-sync/task-installing-azure.html[Learn more about creating a data broker in Azure.]
 
 === Encrypt data when syncing to Google Storage
 
@@ -111,7 +111,7 @@ The service account used when creating the data broker must have these permissio
 * cloudkms.cryptoKeys.list
 * cloudkms.keyRings.list
 
-https://docs.netapp.com/us-en/bluexp-copy-sync/reference-requirements.html#google-cloud-storage-bucket-requirements[Learn more about Google Cloud Storage bucket requirements.]
+https://docs.netapp.com/us-en/data-services-copy-sync/reference-requirements.html#google-cloud-storage-bucket-requirements[Learn more about Google Cloud Storage bucket requirements.]
 
 == 09 July 2023
 
@@ -119,13 +119,13 @@ https://docs.netapp.com/us-en/bluexp-copy-sync/reference-requirements.html#googl
 
 Users are now able to delete more than one sync relationship at a time in the UI.
 
-https://docs.netapp.com/us-en/bluexp-copy-sync/task-managing-relationships.html#deleting-relationships[Learn more about deleting sync relelationships.]
+https://docs.netapp.com/us-en/data-services-copy-sync/task-managing-relationships.html#deleting-relationships[Learn more about deleting sync relationships.]
 
 === Copy only ACL
 
 Users now have additional options for copying ACL information in CIF and NFS relationships. When creating or managing a sync relationship, you can copy files only, copy ACL information only, or copy files and ACL information.
 
-https://docs.netapp.com/us-en/bluexp-copy-sync/task-copying-acls.html[Learn more about copying ACLs.]
+https://docs.netapp.com/us-en/data-services-copy-sync/task-copying-acls.html[Learn more about copying ACLs.]
 
 === Updated to Node.js 20
 
@@ -137,13 +137,13 @@ Copy and Sync has updated to Node.js 20. All available data brokers will be upda
 
 Active syncs that have not completed can now be aborted after fifteen minutes using the *Sync Timeout* feature.
 
-https://docs.netapp.com/us-en/bluexp-copy-sync/task-creating-relationships.html#settings[Learn more about the Sync Timeout setting].
+https://docs.netapp.com/us-en/data-services-copy-sync/task-creating-relationships.html#settings[Learn more about the Sync Timeout setting].
 
 === Copy access time metadata
 
 In relationships including a file system, the *Copy for Objects* feature now copies access time metadata.
 
-https://docs.netapp.com/us-en/bluexp-copy-sync/task-creating-relationships.html#settings[Learn more about the Copy For Objects setting].
+https://docs.netapp.com/us-en/data-services-copy-sync/task-creating-relationships.html#settings[Learn more about the Copy For Objects setting].
 
 == 08 May 2023
 
@@ -151,7 +151,7 @@ https://docs.netapp.com/us-en/bluexp-copy-sync/task-creating-relationships.html#
 
 Users can now include hard links for syncs involving unsecured NFS to NFS relationships.
 
-https://docs.netapp.com/us-en/bluexp-copy-sync/task-creating-relationships.html#settings[Learn more about the File Types setting].
+https://docs.netapp.com/us-en/data-services-copy-sync/task-creating-relationships.html#settings[Learn more about the File Types setting].
 
 === Ability to add user certificate for data brokers in secure NFS relationships
 
@@ -161,15 +161,15 @@ Users are now able to set their own certificate for the target data broker when 
 
 Users can now exclude files that were modified up to 365 days before the scheduled sync.
 
-https://docs.netapp.com/us-en/bluexp-copy-sync/task-creating-relationships.html#settings[Learn more about the Recently Modified Files setting].
+https://docs.netapp.com/us-en/data-services-copy-sync/task-creating-relationships.html#settings[Learn more about the Recently Modified Files setting].
 
 === Filter relationships in UI by relationship ID
 
 Those using the RESTful API can now filter relationships using relationship IDs.
 
-https://docs.netapp.com/us-en/bluexp-copy-sync/api-sync.html[Learn more about using the RESTful API with NetApp Copy and Sync].
+https://docs.netapp.com/us-en/data-services-copy-sync/api-sync.html[Learn more about using the RESTful API with NetApp Copy and Sync].
 
-https://docs.netapp.com/us-en/bluexp-copy-sync/task-creating-relationships.html#settings[Learn more about the Exclude Directories setting].
+https://docs.netapp.com/us-en/data-services-copy-sync/task-creating-relationships.html#settings[Learn more about the Exclude Directories setting].
 
 == 02 April 2023
 
@@ -182,13 +182,13 @@ You can now create sync relationships with Azure Data Lake Storage Gen2 as a sou
 * Cloud Volumes ONTAP
 * On-Prem ONTAP
 
-https://docs.netapp.com/us-en/bluexp-copy-sync/reference-supported-relationships.html[Learn more about supported sync relationships].
+https://docs.netapp.com/us-en/data-services-copy-sync/reference-supported-relationships.html[Learn more about supported sync relationships].
 
 === Filter directories by full path
 
 In addition to filtering directories out by name, you can now filter directories by their full path.
 
-https://docs.netapp.com/us-en/bluexp-copy-sync/task-creating-relationships.html#settings[Learn more about the Exclude Directories setting].
+https://docs.netapp.com/us-en/data-services-copy-sync/task-creating-relationships.html#settings[Learn more about the Exclude Directories setting].
 
 == 07 March 2023
 
@@ -196,7 +196,7 @@ https://docs.netapp.com/us-en/bluexp-copy-sync/task-creating-relationships.html#
 
 You can now encrypt AWS data broker volumes using a KMS key from your account.
 
-https://docs.netapp.com/us-en/bluexp-copy-sync/task-installing-aws.html#creating-the-data-broker[Learn more about creating a data broker in AWS].
+https://docs.netapp.com/us-en/data-services-copy-sync/task-installing-aws.html#creating-the-data-broker[Learn more about creating a data broker in AWS].
 
 == 05 Feb 2023
 
@@ -215,13 +215,13 @@ Cloud Sync also has additional support for Azure Data Lake Storage Gen2 as both 
 * StorageGRID
 * IBM Cloud Object Storage
 
-https://docs.netapp.com/us-en/bluexp-copy-sync/reference-supported-relationships.html[Learn more about supported sync relationships].
+https://docs.netapp.com/us-en/data-services-copy-sync/reference-supported-relationships.html[Learn more about supported sync relationships].
 
 === Upgrade to Amazon Web Services data broker operating system
 
 The operating system for AWS data brokers has been upgraded to the Amazon Linux 2022.
 
-https://docs.netapp.com/us-en/bluexp-copy-sync/task-installing-aws.html#details-about-the-data-broker-instance[Learn more about the data broker instance in AWS].
+https://docs.netapp.com/us-en/data-services-copy-sync/task-installing-aws.html#details-about-the-data-broker-instance[Learn more about the data broker instance in AWS].
 
 == 03 Jan 2023
 
@@ -229,15 +229,15 @@ https://docs.netapp.com/us-en/bluexp-copy-sync/task-installing-aws.html#details-
 
 There is now a *Show Configuration* option that allows users to view the local configuration of each data broker on the UI.
 
-https://docs.netapp.com/us-en/bluexp-copy-sync/task-managing-data-brokers.html[Learn more about managing data broker groups].
+https://docs.netapp.com/us-en/data-services-copy-sync/task-managing-data-brokers.html[Learn more about managing data broker groups].
 
 === Upgrade to Azure and Google Cloud data broker operating system
 
 The operating system for data brokers in Azure and Google Cloud has been upgraded to the Rocky Linux 9.0.
 
-https://docs.netapp.com/us-en/bluexp-copy-sync/task-installing-azure.html#details-about-the-data-broker-vm[Learn more about the data broker instance in Azure].
+https://docs.netapp.com/us-en/data-services-copy-sync/task-installing-azure.html#details-about-the-data-broker-vm[Learn more about the data broker instance in Azure].
 
-https://docs.netapp.com/us-en/bluexp-copy-sync/task-installing-gcp.html#details-about-the-data-broker-vm-instance[Learn more about the data broker instance in Google Cloud].
+https://docs.netapp.com/us-en/data-services-copy-sync/task-installing-gcp.html#details-about-the-data-broker-vm-instance[Learn more about the data broker instance in Google Cloud].
 
 == 11 Dec 2022
 
@@ -245,7 +245,7 @@ https://docs.netapp.com/us-en/bluexp-copy-sync/task-installing-gcp.html#details-
 
 A new *Exclude Directory Names* setting is now available for sync relationships. Users can filter out a maximum of 15 directory names from their sync. The .copy-offload, .snapshot, ~snapshot directories are excluded by default.
 
-https://docs.netapp.com/us-en/bluexp-copy-sync/task-creating-relationships.html#settings[Learn more about the Exclude Directory Names setting].
+https://docs.netapp.com/us-en/data-services-copy-sync/task-creating-relationships.html#settings[Learn more about the Exclude Directory Names setting].
 
 === Additional Amazon S3 and ONTAP S3 Storage support
 
@@ -254,7 +254,7 @@ Cloud Sync now supports additional sync relationships for AWS S3 and ONTAP S3 St
 * AWS S3 to ONTAP S3 Storage
 * ONTAP S3 Storage to AWS S3
 
-https://docs.netapp.com/us-en/bluexp-copy-sync/reference-supported-relationships.html[Learn more about supported sync relationships].
+https://docs.netapp.com/us-en/data-services-copy-sync/reference-supported-relationships.html[Learn more about supported sync relationships].
 
 == 30 Oct 2022
 
@@ -280,7 +280,7 @@ The Azure data broker needs a custom role and the following permissions to use t
 'Microsoft.Storage/storageAccounts/write'
 
 
-https://docs.netapp.com/us-en/bluexp-copy-sync/task-creating-relationships.html#settings[Learn more about the Continuous Sync setting].
+https://docs.netapp.com/us-en/data-services-copy-sync/task-creating-relationships.html#settings[Learn more about the Continuous Sync setting].
 
 == 04 Sept 2022
 
@@ -293,7 +293,7 @@ https://docs.netapp.com/us-en/bluexp-copy-sync/task-creating-relationships.html#
 
 * You can also generate reports for sync relationships that include Google Drive.
 +
-https://docs.netapp.com/us-en/bluexp-copy-sync/task-managing-reports.html[Learn more about reports].
+https://docs.netapp.com/us-en/data-services-copy-sync/task-managing-reports.html[Learn more about reports].
 
 === Continuous sync enhancement
 
@@ -302,7 +302,7 @@ You can now enable the Continuous Sync setting on the following types of sync re
 * S3 bucket to an NFS server
 * Google Cloud Storage to an NFS server
 
-https://docs.netapp.com/us-en/bluexp-copy-sync/task-creating-relationships.html#settings[Learn more about the Continuous Sync setting].
+https://docs.netapp.com/us-en/data-services-copy-sync/task-creating-relationships.html#settings[Learn more about the Continuous Sync setting].
 
 === Email notifications
 
@@ -310,7 +310,7 @@ You can now receive Cloud Sync notifications by email.
 
 In order to receive the notifications by email, you'll need to enable the *Notifications* setting on the sync relationship and then configure the Alerts and Notification settings in the NetApp Console.
 
-https://docs.netapp.com/us-en/bluexp-copy-sync/task-managing-relationships.html#setting-up-notifications[Learn how to set up notifications].
+https://docs.netapp.com/us-en/data-services-copy-sync/task-managing-relationships.html#setting-up-notifications[Learn how to set up notifications].
 
 == 31 July 2022
 
@@ -318,9 +318,9 @@ https://docs.netapp.com/us-en/bluexp-copy-sync/task-managing-relationships.html#
 
 You can now sync data from an NFS server or SMB server to Google Drive. Both "My Drive" and "Shared Drives" are supported as targets.
 
-Before you can create a sync relationship that includes Google Drive, you need to set up a service account that has the required permissions and a private key. https://docs.netapp.com/us-en/bluexp-copy-sync/reference-requirements.html#google-drive[Learn more about Google Drive requirements].
+Before you can create a sync relationship that includes Google Drive, you need to set up a service account that has the required permissions and a private key. https://docs.netapp.com/us-en/data-services-copy-sync/reference-requirements.html#google-drive[Learn more about Google Drive requirements].
 
-https://docs.netapp.com/us-en/bluexp-copy-sync/reference-supported-relationships.html[View the list of supported sync relationships].
+https://docs.netapp.com/us-en/data-services-copy-sync/reference-supported-relationships.html[View the list of supported sync relationships].
 
 === Additional Azure Data Lake support
 
@@ -330,7 +330,7 @@ Cloud Sync now supports additional sync relationships for Azure Data Lake Storag
 * IBM Cloud Object Storage to Azure Data Lake Storage Gen2
 * StorageGRID to Azure Data Lake Storage Gen2
 
-https://docs.netapp.com/us-en/bluexp-copy-sync/reference-supported-relationships.html[View the list of supported sync relationships].
+https://docs.netapp.com/us-en/data-services-copy-sync/reference-supported-relationships.html[View the list of supported sync relationships].
 
 === New ways to set up sync relationships
 
@@ -340,13 +340,13 @@ We've added additional ways to set up sync relationships directly from the NetAp
 
 You can now set up a sync relationship from the Systems page by dragging and dropping one system on top of another.
 
-image:https://raw.githubusercontent.com/NetAppDocs/bluexp-copy-sync/main/media/screenshot-enable-drag-and-drop.png[A screenshot that shows the Notification Center in the NetApp Console.]
+image:https://raw.githubusercontent.com/NetAppDocs/data-services-copy-sync/main/media/screenshot-enable-drag-and-drop.png[A screenshot that shows the Notification Center in the NetApp Console.]
 
 ==== Right panel setup
 
 You can now set up a sync relationship for Azure Blob storage or for Google Cloud Storage by selecting the system from the Systems page and then selecting the sync option from the right panel.
 
-image:https://raw.githubusercontent.com/NetAppDocs/bluexp-copy-sync/main/media/screenshot-enable-panel.png[A screenshot that shows the Notification Center in the NetApp Console.]
+image:https://raw.githubusercontent.com/NetAppDocs/data-services-copy-sync/main/media/screenshot-enable-panel.png[A screenshot that shows the Notification Center in the NetApp Console.]
 
 == 03 July 2022
 
@@ -356,7 +356,7 @@ You can now sync data from an NFS server or SMB server to Azure Data Lake Storag
 
 When creating a sync relationship that includes Azure Data Lake, you need to provide Cloud Sync with the storage account connection string. It must be a regular connection string, not a shared access signature (SAS).
 
-https://docs.netapp.com/us-en/bluexp-copy-sync/reference-supported-relationships.html[View the list of supported sync relationships].
+https://docs.netapp.com/us-en/data-services-copy-sync/reference-supported-relationships.html[View the list of supported sync relationships].
 
 === Continuous sync from Google Cloud Storage
 
@@ -378,7 +378,7 @@ The service account associated with your data broker needs the following permiss
 - pubsub.topics.setIamPolicy
 - storage.buckets.update
 
-https://docs.netapp.com/us-en/bluexp-copy-sync/task-creating-relationships.html#settings[Learn more about the Continuous Sync setting].
+https://docs.netapp.com/us-en/data-services-copy-sync/task-creating-relationships.html#settings[Learn more about the Continuous Sync setting].
 
 === New Google Cloud region support
 
@@ -410,7 +410,7 @@ Note that the IAM role associated with your data broker will need the following 
 
 These permissions are automatically added to any new data brokers that you create.
 
-https://docs.netapp.com/us-en/bluexp-copy-sync/task-creating-relationships.html#settings[Learn more about the Continuous Sync setting].
+https://docs.netapp.com/us-en/data-services-copy-sync/task-creating-relationships.html#settings[Learn more about the Continuous Sync setting].
 
 === Show all ONTAP volumes
 
@@ -434,15 +434,15 @@ These options are supported when Azure Blob is the target and the source is eith
 
 A new *Sync Timeout* setting is now available for sync relationships. This setting enables you to define whether Cloud Sync should cancel a data sync if the sync hasn't completed in the specified number of hours or days.
 
-https://docs.netapp.com/us-en/bluexp-copy-sync/task-managing-relationships.html#change-the-settings-for-a-sync-relationship[Learn more about changing the settings for a sync relationship].
+https://docs.netapp.com/us-en/data-services-copy-sync/task-managing-relationships.html#change-the-settings-for-a-sync-relationship[Learn more about changing the settings for a sync relationship].
 
 === Notifications
 
 A new *Notifications* setting is now available for sync relationships. This setting enables you to choose whether to receive Cloud Sync notifications in the NetApp Console's Notification Center. You can enable notifications for successful data syncs, failed data syncs, and canceled data syncs.
 
-image:https://raw.githubusercontent.com/NetAppDocs/bluexp-copy-sync/main/media/screenshot-notification-center.png[A screenshot that shows the Notification Center in the NetApp Console.]
+image:https://raw.githubusercontent.com/NetAppDocs/data-services-copy-sync/main/media/screenshot-notification-center.png[A screenshot that shows the Notification Center in the NetApp Console.]
 
-https://docs.netapp.com/us-en/bluexp-copy-sync/task-managing-relationships.html#change-the-settings-for-a-sync-relationship[Learn more about changing the settings for a sync relationship].
+https://docs.netapp.com/us-en/data-services-copy-sync/task-managing-relationships.html#change-the-settings-for-a-sync-relationship[Learn more about changing the settings for a sync relationship].
 
 == 03 April 2022
 
@@ -456,13 +456,13 @@ We made several enhancements to data broker groups:
 
 * Finally, you can also delete data broker groups.
 
-https://docs.netapp.com/us-en/bluexp-copy-sync/task-managing-data-brokers.html[Learn how to manage data broker groups].
+https://docs.netapp.com/us-en/data-services-copy-sync/task-managing-data-brokers.html[Learn how to manage data broker groups].
 
 === Dashboard filter
 
 You can now filter the contents of the Sync Dashboard to more easily find sync relationships that match a certain status. For example, you can filter on sync relationships that have a failed status
 
-image:https://raw.githubusercontent.com/NetAppDocs/bluexp-copy-sync/main/media/screenshot-sync-filter.png[A screenshot that shows the Filter by sync status option at the top of the dashboard.]
+image:https://raw.githubusercontent.com/NetAppDocs/data-services-copy-sync/main/media/screenshot-sync-filter.png[A screenshot that shows the Filter by sync status option at the top of the dashboard.]
 
 == 03 March 2022
 
@@ -470,13 +470,13 @@ image:https://raw.githubusercontent.com/NetAppDocs/bluexp-copy-sync/main/media/s
 
 You now sort the dashboard by sync relationship name.
 
-image:https://raw.githubusercontent.com/NetAppDocs/bluexp-copy-sync/main/media/screenshot-sync-sort.png[A screenshot that shows the Sort by name option that is available from the dashboard.]
+image:https://raw.githubusercontent.com/NetAppDocs/data-services-copy-sync/main/media/screenshot-sync-sort.png[A screenshot that shows the Sort by name option that is available from the dashboard.]
 
 === Enhancement to Data Sense integration
 
 In the previous release, we introduced Cloud Sync integration with Cloud Data Sense. In this update, we enhanced the integration by making it easier to create the sync relationship. After you initiate a data sync from Cloud Data Sense, all of the source information is contained in a single step and only requires you to enter a few key details.
 
-image:https://raw.githubusercontent.com/NetAppDocs/bluexp-copy-sync/main/media/screenshot-sync-data-sense.png[A screenshot that shows the Data Sense Integration page that appears after starting a new sync directly from Cloud Data Sense.]
+image:https://raw.githubusercontent.com/NetAppDocs/data-services-copy-sync/main/media/screenshot-sync-data-sense.png[A screenshot that shows the Data Sense Integration page that appears after starting a new sync directly from Cloud Data Sense.]
 
 == 06 February 2022
 
@@ -486,17 +486,17 @@ We changed how you interact with data brokers by emphasizing data broker _groups
 
 For example, when you create a new sync relationship, you select the data broker _group_ to use with the relationship, rather than a specific data broker.
 
-image:https://raw.githubusercontent.com/NetAppDocs/bluexp-copy-sync/main/media/screenshot-sync-select-data-broker-group.png[A screenshot of the Sync Relationship wizard that shows the data broker group selection.]
+image:https://raw.githubusercontent.com/NetAppDocs/data-services-copy-sync/main/media/screenshot-sync-select-data-broker-group.png[A screenshot of the Sync Relationship wizard that shows the data broker group selection.]
 
 In the *Manage Data Brokers* tab, we also show the number of sync relationships that a data broker group is managing.
 
-image:https://raw.githubusercontent.com/NetAppDocs/bluexp-copy-sync/main/media/screenshot-sync-group-relationships.png["A screenshot of the Manage Data Brokers page that shows a data broker group and details about that group, including the number of relationships that it's managing."]
+image:https://raw.githubusercontent.com/NetAppDocs/data-services-copy-sync/main/media/screenshot-sync-group-relationships.png["A screenshot of the Manage Data Brokers page that shows a data broker group and details about that group, including the number of relationships that it's managing."]
 
 === Download PDF reports
 
 You can now download a PDF of a report.
 
-https://docs.netapp.com/us-en/bluexp-copy-sync/task-managing-reports.html[Learn more about reports].
+https://docs.netapp.com/us-en/data-services-copy-sync/task-managing-reports.html[Learn more about reports].
 
 == 02 January 2022
 
@@ -610,7 +610,7 @@ You can now link:task-managing-reports.html[create a report] for SFTP paths.
 
 You can now sync data to or from an Amazon FSx for ONTAP file system.
 
-* https://docs.netapp.com/us-en/bluexp-fsx-ontap/start/concept-fsx-aws.html[Learn about Amazon FSx for ONTAP^]
+* https://docs.netapp.com/us-en/storage-management-fsx-ontap/start/concept-fsx-aws.html[Learn about Amazon FSx for ONTAP^]
 * link:reference-requirements.html[View supported sync relationships]
 * link:task-creating-relationships.html[Learn how to create a sync relationship for Amazon FSx for ONTAP]
 
