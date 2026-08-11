@@ -18,10 +18,10 @@ on:
 jobs:
   claude-mvp:
     if: contains(github.event.comment.body, '@claude-mvp')
-    uses: NetAppDocs/.github-private/.github/workflows/reusable-claude-mvp.yml@main
+    uses: NetAppDocs/ai-workloads-poc/.github/workflows/reusable-claude-mvp.yml@main
     secrets: inherit
 
   claude-title:
     if: contains(github.event.comment.body, '@claude-title')
-    uses: NetAppDocs/.github-private/.github/workflows/reusable-claude-title.yml@main
+    uses: NetAppDocs/ai-workloads-poc/.github/workflows/reusable-claude-title.yml@main
     secrets: inherit
