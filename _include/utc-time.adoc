@@ -1,4 +1,4 @@
 [IMPORTANT]
-When you set the schedule, you must enter a value for the when *The next sync will automatically start at*. Copy and Sync uses *UTC*, not local time. Plan accordingly when you set the time scheduled time. 
+When you set the schedule, you must enter a value for when *The next sync will automatically start*. Copy and Sync uses *UTC*, not local time. Plan accordingly when you set the scheduled time. 
 
 // bluexpdoc-1413
