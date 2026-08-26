@@ -1,4 +1,4 @@
-# Copilot instructions for NetApp Copy and Sync documentation
+# Claude instructions for NetApp Copy and Sync documentation
 
 ## Repository overview
 

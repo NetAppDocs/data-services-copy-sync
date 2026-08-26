@@ -131,7 +131,9 @@ image:screenshot_sync_settings.png[A screenshot that shows the settings for a sy
 +
 [[deleteonsource]] Here's a brief description of each setting:
 +
-Schedule:: Choose a recurring schedule for future syncs or turn off the sync schedule. You can schedule a relationship to sync data as often as every 1 minute.
+Schedule:: Choose a recurring schedule for future syncs or turn off the sync schedule. You can schedule a relationship to sync data as often as every 1 minute. Schedules can also be set at hourly and daily frequencies. 
++
+include::_include/utc-time.adoc[]
 
 Sync Timeout:: Define whether Copy and Sync should cancel a data sync if the sync hasn't completed in the specified number of minutes, hours, or days.
 
