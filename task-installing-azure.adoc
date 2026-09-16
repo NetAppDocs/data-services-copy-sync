@@ -40,7 +40,7 @@ If you need to limit outbound connectivity, see link:reference-networking.html[t
 Ensure that the Azure user account that you use to deploy the data broker has the following permissions:
 
 [source,json]
-====
+----
 {
     "Name": "Azure Data Broker",
     "Actions": [
@@ -99,7 +99,7 @@ Ensure that the Azure user account that you use to deploy the data broker has th
     "Description": "Azure Data Broker",
     "IsCustom": "true"
 }
-====
+----
 
 The following permissions are only required if you plan to enable the link:task-creating-relationships.html[Continuous Sync setting] on a sync relationship from Azure to another cloud storage location:
 
