@@ -185,7 +185,7 @@ In Azure, go to *Admin Centers > Azure AD > Users and Groups > User Settings* an
 
 . Ask your AD admin to consent on your behalf to *CloudSync-AzureDataBrokerCreator* using the following URL (this is the admin consent endpoint):
 +
-\https://login.microsoftonline.com/{FILL HERE YOUR TENANT ID}/v2.0/adminconsent?client_id=8ee4ca3a-bafa-4831-97cc-5a38923cab85&redirect_uri=https://cloudsync.netapp.com&scope=https://management.azure.com/user_impersonationhttps://graph.microsoft.com/User.Read
+`\https://login.microsoftonline.com/{FILL HERE YOUR TENANT ID}/v2.0/adminconsent?client_id=8ee4ca3a-bafa-4831-97cc-5a38923cab85&redirect_uri=https://cloudsync.netapp.com&scope=https://management.azure.com/user_impersonationhttps://graph.microsoft.com/User.Read`
 +
 As shown in the URL, our app URL is \https://cloudsync.netapp.com and the application client ID is 8ee4ca3a-bafa-4831-97cc-5a38923cab85.
 
