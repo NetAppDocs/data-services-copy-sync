@@ -5,7 +5,7 @@ keywords: networking, nfs, cifs, smb, version, connection, google, gcp, azure, b
 summary: Verify that your source and targets meet the following requirements.
 ---
 
-= Prepare the source and target in NetApp Copy and Sync
+= Source and target requirements for NetApp Copy and Sync
 :hardbreaks:
 :nofooter:
 :icons: font
