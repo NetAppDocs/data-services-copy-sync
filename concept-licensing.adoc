@@ -31,7 +31,7 @@ Google Cloud Marketplace subscriptions are not supported for Copy and Sync.
 
 With an hourly pay-as-you-go subscription, you're charged hourly based on the number of sync relationships that you create.
 
-* https://marketplace.microsoft.com/en-us/product/netapp.cloud-sync-service?tab=PlansAndPrice[View pricing in Azure^]
+* https://marketplace.microsoft.com/en-us/product/netapp.cloud-sync-service[View pricing in Azure^]
 * https://aws.amazon.com/marketplace/pp/B01LZV5DUJ[View pay-as-you-go pricing in AWS^]
 
 
