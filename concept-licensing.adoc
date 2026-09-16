@@ -5,7 +5,7 @@ keywords: licenses, licensing, subscriptions, annual subscription, paygo, hourly
 summary: There are two ways to pay for sync relationships after your 14-day free trial ends. The first option is to subscribe from AWS or Azure to pay-as-you-go or to pay annually. The second option is to purchase licenses directly from NetApp.
 ---
 
-= Licensing overview for NetApp Copy and Sync 
+= Learn about licensing in NetApp Copy and Sync
 :hardbreaks:
 :nofooter:
 :icons: font

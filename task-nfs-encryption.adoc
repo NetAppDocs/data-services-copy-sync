@@ -5,7 +5,7 @@ keywords: encryption, in flight, data in flight, in-flight, data-in-flight, nfs,
 summary: If your business has strict security policies, sync data between NFS servers in different networks using data-in-flight encryption.
 ---
 
-= Sync NFS data using data-in-flight encryption in NetApp Copy and Sync
+= Create encrypted NFS sync relationships with NetApp Copy and Sync
 :hardbreaks:
 :nofooter:
 :icons: font
