@@ -93,7 +93,6 @@ Ensure that the Azure user account that you use to deploy the data broker has th
                     "Microsoft.Network/networkSecurityGroups/securityRules/read",
         	        "Microsoft.Network/networkSecurityGroups/read",
 
-
     ],
     "NotActions": [],
     "AssignableScopes": [],
@@ -176,8 +175,8 @@ The process can take up to 7 minutes.
 
 You have deployed a data broker in Azure and created a new sync relationship. You can use this data broker with additional sync relationships.
 
-.Getting a message about needing admin consent?
-****
+.After you finish
+
 If Microsoft notifies you that admin approval is required because Copy and Sync needs permission to access resources in your organization on your behalf, then you have two options:
 
 . Ask your AD admin to provide you with the following permission:
@@ -189,7 +188,6 @@ In Azure, go to *Admin Centers > Azure AD > Users and Groups > User Settings* an
 \https://login.microsoftonline.com/{FILL HERE YOUR TENANT ID}/v2.0/adminconsent?client_id=8ee4ca3a-bafa-4831-97cc-5a38923cab85&redirect_uri=https://cloudsync.netapp.com&scope=https://management.azure.com/user_impersonationhttps://graph.microsoft.com/User.Read
 +
 As shown in the URL, our app URL is \https://cloudsync.netapp.com and the application client ID is 8ee4ca3a-bafa-4831-97cc-5a38923cab85.
-****
 
 == Details about the data broker VM
 
