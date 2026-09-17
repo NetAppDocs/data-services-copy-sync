@@ -41,7 +41,7 @@ For pay-as-you-go pricing, Copy and Sync service charges are hourly, based on th
 
 * https://aws.amazon.com/marketplace/pp/B01LZV5DUJ[View pay-as-you-go pricing in AWS^]
 * https://aws.amazon.com/marketplace/pp/B06XX5V3M2[View annual pricing in AWS^]
-* https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-sync-service?tab=PlansAndPrice[View pricing in Azure^]
+* https://marketplace.microsoft.com/en-us/product/netapp.cloud-sync-service?tab=PlansAndPrice[View pricing in Azure^]
 
 Copy and Sync licenses are also available through your NetApp representative. Each license enables 20 sync relationships for 12 months.
 
