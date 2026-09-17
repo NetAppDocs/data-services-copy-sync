@@ -40,7 +40,7 @@ If you need to limit outbound connectivity, see link:reference-networking.html[t
 Ensure that the Azure user account that you use to deploy the data broker has the following permissions:
 
 [source,json]
-====
+----
 {
     "Name": "Azure Data Broker",
     "Actions": [
@@ -93,14 +93,13 @@ Ensure that the Azure user account that you use to deploy the data broker has th
                     "Microsoft.Network/networkSecurityGroups/securityRules/read",
         	        "Microsoft.Network/networkSecurityGroups/read",
 
-
     ],
     "NotActions": [],
     "AssignableScopes": [],
     "Description": "Azure Data Broker",
     "IsCustom": "true"
 }
-====
+----
 
 The following permissions are only required if you plan to enable the link:task-creating-relationships.html[Continuous Sync setting] on a sync relationship from Azure to another cloud storage location:
 
@@ -176,8 +175,8 @@ The process can take up to 7 minutes.
 
 You have deployed a data broker in Azure and created a new sync relationship. You can use this data broker with additional sync relationships.
 
-.Getting a message about needing admin consent?
-****
+.After you finish
+
 If Microsoft notifies you that admin approval is required because Copy and Sync needs permission to access resources in your organization on your behalf, then you have two options:
 
 . Ask your AD admin to provide you with the following permission:
@@ -186,10 +185,9 @@ In Azure, go to *Admin Centers > Azure AD > Users and Groups > User Settings* an
 
 . Ask your AD admin to consent on your behalf to *CloudSync-AzureDataBrokerCreator* using the following URL (this is the admin consent endpoint):
 +
-\https://login.microsoftonline.com/{FILL HERE YOUR TENANT ID}/v2.0/adminconsent?client_id=8ee4ca3a-bafa-4831-97cc-5a38923cab85&redirect_uri=https://cloudsync.netapp.com&scope=https://management.azure.com/user_impersonationhttps://graph.microsoft.com/User.Read
+`\https://login.microsoftonline.com/{FILL HERE YOUR TENANT ID}/v2.0/adminconsent?client_id=8ee4ca3a-bafa-4831-97cc-5a38923cab85&redirect_uri=https://cloudsync.netapp.com&scope=https://management.azure.com/user_impersonationhttps://graph.microsoft.com/User.Read`
 +
 As shown in the URL, our app URL is \https://cloudsync.netapp.com and the application client ID is 8ee4ca3a-bafa-4831-97cc-5a38923cab85.
-****
 
 == Details about the data broker VM
 
