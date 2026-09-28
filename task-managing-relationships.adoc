@@ -5,7 +5,7 @@ keywords: sync, immediate, now, schedule, minutes, hours, on, off, delete, group
 summary: You can manage sync relationships at any time by immediately syncing data, changing schedules, and more.
 ---
 
-= Managing sync relationships in NetApp Copy and Sync
+= Manage sync relationships in NetApp Copy and Sync
 :hardbreaks:
 :nofooter:
 :icons: font

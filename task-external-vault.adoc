@@ -5,7 +5,7 @@ keywords: hashicorp, vault, credentials, secrets, API
 summary: When you create a sync relationship that requires Amazon S3, Azure, or Google Cloud credentials, you need to specify those credentials through the NetApp Copy and Sync user interface or API. An alternative is to set up the data broker to access the credentials directly from an external HashiCorp Vault.
 ---
 
-= Set up a data broker group to use an external HashiCorp Vault in NetApp Copy and Sync
+= Set up HashiCorp Vault for a NetApp Copy and Sync data broker group
 :hardbreaks:
 :nofooter:
 :icons: font

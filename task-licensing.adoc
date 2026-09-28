@@ -5,7 +5,7 @@ keywords: license, subscription, registering, subscribing, subscribing in aws, s
 summary: There are two ways to pay for sync relationships after your 14-day free trial ends. The first option is to pay-as-you-go. The second option is to purchase licenses directly from NetApp.
 ---
 
-= Pay for sync relationships after your NetApp Copy and Sync free trial ends
+= Pay for sync relationships in NetApp Copy and Sync
 :hardbreaks:
 :nofooter:
 :icons: font

@@ -5,7 +5,7 @@ keywords: networking, 443, port, ports, port 443, connections, connectivity, pat
 summary: Networking for NetApp Copy and Sync includes connectivity between the data broker group and the source and target locations, and an outbound internet connection from data brokers over port 443.
 ---
 
-= Networking overview for NetApp Copy and Sync
+= Networking requirements for NetApp Copy and Sync
 :hardbreaks:
 :nofooter:
 :icons: font

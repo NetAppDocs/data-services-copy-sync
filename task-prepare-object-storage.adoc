@@ -5,7 +5,7 @@ keywords: prepare data broker, data broker, object storage, sync, scanner, confi
 summary: "If you're planning to sync data from object storage to object storage (for example, Amazon S3 to Azure Blob) using NetApp Copy and Sync, then you need to prepare the data broker group before you create the sync relationship."
 ---
 
-= Prepare a data broker to sync data between object storage in NetApp Copy and Sync
+= Prepare a data broker for object storage sync in NetApp Copy and Sync
 :hardbreaks:
 :nofooter:
 :icons: font

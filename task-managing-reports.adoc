@@ -5,7 +5,7 @@ keywords: reports, sync reports, NetApp Copy and Sync reports, report errors, pa
 summary: Create and view reports to get information that you can use with the help of NetApp personnel to tune a data broker’s configuration and improve performance.
 ---
 
-= Create and view reports to tune your configuration in NetApp Copy and Sync
+= Create and view reports in NetApp Copy and Sync
 :hardbreaks:
 :nofooter:
 :icons: font

@@ -5,7 +5,7 @@ keywords: community, forums, help, support, videos, faq, getting help, permissio
 summary: You can get help with NetApp Copy and Sync and find more information through various resources, including forums, chat services, and videos.
 ---
 
-= NetApp Copy and Sync technical FAQ
+= Technical FAQ for NetApp Copy and Sync
 :hardbreaks:
 :nofooter:
 :icons: font
