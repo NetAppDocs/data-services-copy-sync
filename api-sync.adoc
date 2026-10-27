@@ -5,7 +5,7 @@ keywords: api, apis, rest, restful, authorization, getting started, body, header
 summary: The NetApp Copy and Sync capabilities that are available through the web UI are also available through RESTful APIs.
 ---
 
-= Use the NetApp Copy and Sync APIs
+= Connect to the NetApp Copy and Sync API
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,7 +13,7 @@ summary: The NetApp Copy and Sync capabilities that are available through the we
 :imagesdir: ./media/
 
 [.lead]
-The NetApp Copy and Sync capabilities that are available through the web UI are also available through the RESTful API.
+The NetApp Copy and Sync capabilities that are available in the web UI are also available through the REST API.
 
 == Get started
 

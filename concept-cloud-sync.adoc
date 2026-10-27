@@ -5,7 +5,7 @@ keywords: NetApp Copy and Sync, overview, conceptual, how, data broker, service,
 summary: NetApp Copy and Sync offers a simple, secure, and automated way to migrate your data to any target, in the cloud or on your premises.
 ---
 
-= How NetApp Copy and Sync works
+= Learn about NetApp Copy and Sync
 :hardbreaks:
 :nofooter:
 :icons: font
