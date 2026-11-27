@@ -340,13 +340,13 @@ We've added additional ways to set up sync relationships directly from the NetAp
 
 You can now set up a sync relationship from the Systems page by dragging and dropping one system on top of another.
 
-image:https://raw.githubusercontent.com/NetAppDocs/data-services-copy-sync/main/media/screenshot-enable-drag-and-drop.png[A screenshot that shows the Notification Center in the NetApp Console.]
+image:screenshot-enable-drag-and-drop.png[A screenshot that shows the Notification Center in the NetApp Console.]
 
 ==== Right panel setup
 
 You can now set up a sync relationship for Azure Blob storage or for Google Cloud Storage by selecting the system from the Systems page and then selecting the sync option from the right panel.
 
-image:https://raw.githubusercontent.com/NetAppDocs/data-services-copy-sync/main/media/screenshot-enable-panel.png[A screenshot that shows the Notification Center in the NetApp Console.]
+image:screenshot-enable-panel.png[A screenshot that shows the Notification Center in the NetApp Console.]
 
 == 03 July 2022
 
@@ -440,7 +440,7 @@ https://docs.netapp.com/us-en/data-services-copy-sync/task-managing-relationship
 
 A new *Notifications* setting is now available for sync relationships. This setting enables you to choose whether to receive Cloud Sync notifications in the NetApp Console's Notification Center. You can enable notifications for successful data syncs, failed data syncs, and canceled data syncs.
 
-image:https://raw.githubusercontent.com/NetAppDocs/data-services-copy-sync/main/media/screenshot-notification-center.png[A screenshot that shows the Notification Center in the NetApp Console.]
+image:screenshot-notification-center.png[A screenshot that shows the Notification Center in the NetApp Console.]
 
 https://docs.netapp.com/us-en/data-services-copy-sync/task-managing-relationships.html#change-the-settings-for-a-sync-relationship[Learn more about changing the settings for a sync relationship].
 
@@ -462,7 +462,7 @@ https://docs.netapp.com/us-en/data-services-copy-sync/task-managing-data-brokers
 
 You can now filter the contents of the Sync Dashboard to more easily find sync relationships that match a certain status. For example, you can filter on sync relationships that have a failed status
 
-image:https://raw.githubusercontent.com/NetAppDocs/data-services-copy-sync/main/media/screenshot-sync-filter.png[A screenshot that shows the Filter by sync status option at the top of the dashboard.]
+image:screenshot-sync-filter.png[A screenshot that shows the Filter by sync status option at the top of the dashboard.]
 
 == 03 March 2022
 
@@ -470,13 +470,13 @@ image:https://raw.githubusercontent.com/NetAppDocs/data-services-copy-sync/main/
 
 You now sort the dashboard by sync relationship name.
 
-image:https://raw.githubusercontent.com/NetAppDocs/data-services-copy-sync/main/media/screenshot-sync-sort.png[A screenshot that shows the Sort by name option that is available from the dashboard.]
+image:screenshot-sync-sort.png[A screenshot that shows the Sort by name option that is available from the dashboard.]
 
 === Enhancement to Data Sense integration
 
 In the previous release, we introduced Cloud Sync integration with Cloud Data Sense. In this update, we enhanced the integration by making it easier to create the sync relationship. After you initiate a data sync from Cloud Data Sense, all of the source information is contained in a single step and only requires you to enter a few key details.
 
-image:https://raw.githubusercontent.com/NetAppDocs/data-services-copy-sync/main/media/screenshot-sync-data-sense.png[A screenshot that shows the Data Sense Integration page that appears after starting a new sync directly from Cloud Data Sense.]
+image:screenshot-sync-data-sense.png[A screenshot that shows the Data Sense Integration page that appears after starting a new sync directly from Cloud Data Sense.]
 
 == 06 February 2022
 
@@ -486,11 +486,11 @@ We changed how you interact with data brokers by emphasizing data broker _groups
 
 For example, when you create a new sync relationship, you select the data broker _group_ to use with the relationship, rather than a specific data broker.
 
-image:https://raw.githubusercontent.com/NetAppDocs/data-services-copy-sync/main/media/screenshot-sync-select-data-broker-group.png[A screenshot of the Sync Relationship wizard that shows the data broker group selection.]
+image:screenshot-sync-select-data-broker-group.png[A screenshot of the Sync Relationship wizard that shows the data broker group selection.]
 
 In the *Manage Data Brokers* tab, we also show the number of sync relationships that a data broker group is managing.
 
-image:https://raw.githubusercontent.com/NetAppDocs/data-services-copy-sync/main/media/screenshot-sync-group-relationships.png["A screenshot of the Manage Data Brokers page that shows a data broker group and details about that group, including the number of relationships that it's managing."]
+image:screenshot-sync-group-relationships.png["A screenshot of the Manage Data Brokers page that shows a data broker group and details about that group, including the number of relationships that it's managing."]
 
 === Download PDF reports
 
